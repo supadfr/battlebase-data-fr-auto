@@ -112,8 +112,9 @@ JSON à traduire:
             
             if result.returncode != 0:
                 print(f"  Erreur Claude (code {result.returncode})")
-                if attempt == max_retries - 1:
-                    print(f"  Stderr: {result.stderr}")
+                print(f"  Stderr: {result.stderr}")
+                if result.stdout:
+                    print(f"  Stdout: {result.stdout}")
                 continue
             
             response = result.stdout.strip()
@@ -133,9 +134,11 @@ JSON à traduire:
             else:
                 if attempt < max_retries - 1:
                     print(f"  ✗ Impossible d'extraire du JSON valide, réessai...")
-                    # Afficher un aperçu de la réponse pour debug
-                    preview = response[:200] + "..." if len(response) > 200 else response
-                    print(f"  Aperçu de la réponse: {preview}")
+                    # Afficher la réponse complète pour debug
+                    print(f"  Réponse de Claude:")
+                    print("-" * 60)
+                    print(response[:500] + "..." if len(response) > 500 else response)
+                    print("-" * 60)
                 else:
                     print(f"  ✗ Impossible d'extraire du JSON après {max_retries} tentatives")
                     if "Execution error" in response or "error" in response.lower():
@@ -159,10 +162,11 @@ JSON à traduire:
             print(f"  ✗ Timeout: Claude n'a pas répondu après 2 minutes")
             raise  # On relance l'exception pour la gérer plus haut
         except Exception as e:
+            print(f"  ✗ Erreur: {type(e).__name__}: {e}")
             if attempt < max_retries - 1:
-                print(f"  ✗ Erreur: {e}, réessai...")
+                print(f"  Réessai...")
             else:
-                print(f"  ✗ Erreur après {max_retries} tentatives: {e}")
+                print(f"  ✗ Échec après {max_retries} tentatives")
                 return None
     
     return None
