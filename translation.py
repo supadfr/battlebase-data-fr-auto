@@ -229,7 +229,7 @@ def main():
     output_file = 'battlebase-data.json'
     
     # Variables pour la logique adaptative
-    current_chunk_size = 20  # On commence avec 20 entrées
+    current_chunk_size = 18  # On commence avec 18 entrées
     optimal_chunk_size = None  # Taille optimale trouvée
     position = 0
     chunk_number = 0
@@ -248,12 +248,17 @@ def main():
             # Calculer les chunks restants
             entries_remaining = len(data) - position
             chunks_remaining = (entries_remaining + current_chunk_size - 1) // current_chunk_size
-            estimated_time_minutes = chunks_remaining * 2  # 1 chunk ~= 2 minutes
+            estimated_time_seconds = chunks_remaining * 120  # 1 chunk ~= 2 minutes
+            
+            # Formatage en hh:mm:ss
+            hours = estimated_time_seconds // 3600
+            minutes = (estimated_time_seconds % 3600) // 60
+            seconds = estimated_time_seconds % 60
             
             print(f"\n{'='*60}")
             print(f"Utilisation de la taille optimale: {current_chunk_size} entrées/chunk")
             print(f"Chunks restants: {chunks_remaining}")
-            print(f"Temps estimé: ~{estimated_time_minutes} minutes")
+            print(f"Temps estimé: ~{hours:02d}:{minutes:02d}:{seconds:02d}")
             print(f"{'='*60}")
         else:
             print(f"\nTest avec {current_chunk_size} entrées/chunk")
