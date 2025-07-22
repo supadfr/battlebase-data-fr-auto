@@ -241,8 +241,8 @@ def main():
     while position < len(data):
         chunk_number += 1
         
-        # Si on a trouvé la taille optimale, l'utiliser
-        if optimal_chunk_size is not None:
+        # Si on a trouvé la taille optimale et qu'elle n'a pas timeout récemment, l'utiliser
+        if optimal_chunk_size is not None and current_chunk_size >= optimal_chunk_size:
             current_chunk_size = optimal_chunk_size
             
             # Calculer les chunks restants
@@ -279,10 +279,10 @@ def main():
                 
                 position += len(chunk)
                 
-                # Si on n'a pas encore trouvé la taille optimale, on l'a maintenant
-                if optimal_chunk_size is None:
+                # Mettre à jour la taille optimale si on a trouvé mieux
+                if optimal_chunk_size is None or current_chunk_size < optimal_chunk_size:
                     optimal_chunk_size = current_chunk_size
-                    print(f"  ✅ Taille optimale confirmée: {optimal_chunk_size} entrées/chunk")
+                    print(f"  ✅ Taille optimale {'confirmée' if optimal_chunk_size == current_chunk_size else 'mise à jour'}: {optimal_chunk_size} entrées/chunk")
                 
                 # Sauvegarder après chaque chunk
                 with open(output_file, 'w', encoding='utf-8') as f:
@@ -312,6 +312,10 @@ def main():
                 # Réduire la taille de 1
                 current_chunk_size -= 1
                 print(f"  Réduction de la taille à {current_chunk_size}")
+                # Si la taille optimale était celle qui a timeout, la mettre à jour
+                if optimal_chunk_size and optimal_chunk_size > current_chunk_size:
+                    optimal_chunk_size = current_chunk_size
+                    print(f"  Mise à jour de la taille optimale à {optimal_chunk_size}")
                 # On ne change pas la position, on réessaye le même chunk avec moins d'entrées
             else:
                 # Si timeout même avec 1 entrée, on passe
