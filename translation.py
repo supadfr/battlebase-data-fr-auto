@@ -229,57 +229,34 @@ def main():
     output_file = 'battlebase-data.json'
     
     # Variables pour la logique adaptative
-    current_chunk_size = 6  # On commence avec 6 entrées
-    max_chunk_size_reached = None  # Taille max avant timeout
-    optimal_size_found = False
-    last_successful_size = 0  # Dernière taille qui a fonctionné (sera mise à jour après le premier succès)
+    current_chunk_size = 20  # On commence avec 20 entrées
+    optimal_chunk_size = None  # Taille optimale trouvée
     position = 0
     chunk_number = 0
+    
+    # Dictionnaire pour tracker les entrées traduites par ID
+    translated_ids = set()
     
     # Traiter les entrées
     while position < len(data):
         chunk_number += 1
         
-        # Si on a trouvé la taille optimale
-        if optimal_size_found:
-            current_chunk_size = last_successful_size
+        # Si on a trouvé la taille optimale, l'utiliser
+        if optimal_chunk_size is not None:
+            current_chunk_size = optimal_chunk_size
             
             # Calculer les chunks restants
             entries_remaining = len(data) - position
             chunks_remaining = (entries_remaining + current_chunk_size - 1) // current_chunk_size
-            estimated_time_minutes = chunks_remaining * 2  # 1 chunk ~= 2 minutes avec le nouveau timeout
-            estimated_time_hours = estimated_time_minutes / 60
+            estimated_time_minutes = chunks_remaining * 2  # 1 chunk ~= 2 minutes
             
             print(f"\n{'='*60}")
             print(f"Utilisation de la taille optimale: {current_chunk_size} entrées/chunk")
             print(f"Chunks restants: {chunks_remaining}")
-            if estimated_time_hours >= 1:
-                print(f"Temps estimé: ~{estimated_time_hours:.1f} heures")
-            else:
-                print(f"Temps estimé: ~{estimated_time_minutes} minutes")
+            print(f"Temps estimé: ~{estimated_time_minutes} minutes")
             print(f"{'='*60}")
         else:
-            # Phase de recherche
-            if max_chunk_size_reached is None:
-                # On double à chaque fois tant qu'on n'a pas touché de timeout
-                if chunk_number == 1:
-                    current_chunk_size = 6  # On commence avec 6 entrées
-                else:
-                    current_chunk_size = last_successful_size * 2
-                print(f"\n{current_chunk_size} entrées")
-            else:
-                # On a touché un timeout, on fait une recherche dichotomique
-                # entre last_successful_size et max_chunk_size_reached
-                current_chunk_size = last_successful_size + (max_chunk_size_reached - last_successful_size) // 2
-                
-                # Si la différence est <= 1, on a trouvé la taille optimale
-                if max_chunk_size_reached - last_successful_size <= 1:
-                    optimal_size_found = True
-                    current_chunk_size = last_successful_size
-                    print(f"\n✅ Taille optimale trouvée: {current_chunk_size} entrées/chunk")
-                else:
-                    print(f"\nRecherche dichotomique: test avec {current_chunk_size} entrées")
-                    print(f"  (entre {last_successful_size} qui fonctionne et {max_chunk_size_reached} qui timeout)")
+            print(f"\nTest avec {current_chunk_size} entrées/chunk")
         
         # Extraire le chunk
         chunk = data[position:position + current_chunk_size]
@@ -289,12 +266,18 @@ def main():
             translated_chunk = translate_chunk_with_claude(chunk, chunk_number)
             
             if translated_chunk:
-                translated_data.extend(translated_chunk)
+                # Ajouter uniquement les entrées non déjà traduites
+                for item in translated_chunk:
+                    if item['id'] not in translated_ids:
+                        translated_data.append(item)
+                        translated_ids.add(item['id'])
+                
                 position += len(chunk)
                 
-                # Mise à jour de la dernière taille qui a fonctionné
-                if not optimal_size_found:
-                    last_successful_size = current_chunk_size
+                # Si on n'a pas encore trouvé la taille optimale, on l'a maintenant
+                if optimal_chunk_size is None:
+                    optimal_chunk_size = current_chunk_size
+                    print(f"  ✅ Taille optimale confirmée: {optimal_chunk_size} entrées/chunk")
                 
                 # Sauvegarder après chaque chunk
                 with open(output_file, 'w', encoding='utf-8') as f:
@@ -302,66 +285,107 @@ def main():
                 
                 print(f"  Progression: {len(translated_data)}/{len(data)} entrées traduites")
                 
-                # Si on a trouvé la taille optimale, afficher le temps restant
-                if optimal_size_found and position < len(data):
-                    entries_remaining = len(data) - position
-                    chunks_remaining = (entries_remaining + current_chunk_size - 1) // current_chunk_size
-                    estimated_minutes = chunks_remaining * 2
-                    if estimated_minutes >= 60:
-                        estimated_hours = estimated_minutes / 60
-                        print(f"  Chunks restants: {chunks_remaining} (~{estimated_hours:.1f} heures)")
-                    else:
-                        print(f"  Chunks restants: {chunks_remaining} (~{estimated_minutes} minutes)")
-                
-                # Petite pause
+                # Petite pause entre les chunks
                 if position < len(data):
                     time.sleep(1)
             else:
+                # Échec de traduction (autre que timeout)
                 print(f"  ⚠️  Échec de la traduction du chunk {chunk_number}")
-                # En phase de recherche, on ajuste max_chunk_size_reached
-                if not optimal_size_found:
-                    # Si même avec une petite taille ça échoue, on essaie de continuer
-                    if current_chunk_size <= 2:
-                        print(f"  Erreur même avec {current_chunk_size} entrées. Passage au chunk suivant.")
-                        position += current_chunk_size
-                    else:
-                        max_chunk_size_reached = current_chunk_size
-                        chunk_number -= 1  # On refait ce chunk
+                # Réduire la taille et réessayer
+                if current_chunk_size > 1:
+                    current_chunk_size -= 1
+                    print(f"  Réduction de la taille à {current_chunk_size}")
                 else:
-                    # Si on a déjà trouvé la taille optimale et que ça échoue quand même
-                    print(f"  Erreur inattendue avec la taille optimale")
-                    position += current_chunk_size  # On saute ce chunk
+                    # Si même avec 1 entrée ça échoue, on passe
+                    print(f"  Impossible de traduire cette entrée, passage au suivant")
+                    position += 1
                     
         except subprocess.TimeoutExpired:
             # Timeout atteint
-            print(f"  ⚠️  Timeout atteint avec {current_chunk_size} entrées")
-            if not optimal_size_found:
-                max_chunk_size_reached = current_chunk_size
-                chunk_number -= 1  # On refait ce chunk avec une taille plus petite
+            print(f"  ⚠️  Timeout avec {current_chunk_size} entrées")
+            if current_chunk_size > 1:
+                # Réduire la taille de 1
+                current_chunk_size -= 1
+                print(f"  Réduction de la taille à {current_chunk_size}")
+                # On ne change pas la position, on réessaye le même chunk avec moins d'entrées
             else:
-                print(f"  Erreur: timeout avec la taille optimale {current_chunk_size}")
-                position += current_chunk_size  # On saute ce chunk
+                # Si timeout même avec 1 entrée, on passe
+                print(f"  Timeout même avec 1 entrée, passage au suivant")
+                position += 1
     
-    # Vérification finale
+    # Vérification finale et traitement des entrées manquantes
     print(f"\n{'='*60}")
     print(f"Traduction terminée!")
     print(f"  Entrées originales: {len(data)}")
     print(f"  Entrées traduites: {len(translated_data)}")
     
-    if max_chunk_size_reached:
-        print(f"  Taille optimale trouvée: {max_chunk_size_reached - 1} entrées par chunk")
+    if optimal_chunk_size:
+        print(f"  Taille optimale utilisée: {optimal_chunk_size} entrées par chunk")
     
-    if len(translated_data) == len(data):
-        print("  ✅ Toutes les entrées ont été traduites!")
-    else:
+    # Vérifier s'il manque des entrées
+    if len(translated_data) < len(data):
         missing = len(data) - len(translated_data)
         print(f"  ⚠️  {missing} entrées manquantes")
+        
+        # Identifier précisément les entrées manquantes
+        missing_entries = [item for item in data if item['id'] not in translated_ids]
+        
+        if missing_entries:
+            print(f"\nPhase de rattrapage pour {len(missing_entries)} entrées...")
+            
+            # Utiliser une taille de chunk sûre pour le rattrapage
+            safe_chunk_size = min(6, optimal_chunk_size or 6)
+            retry_position = 0
+            
+            while retry_position < len(missing_entries):
+                chunk_number += 1
+                # Prendre un chunk d'entrées manquantes
+                retry_chunk = missing_entries[retry_position:retry_position + safe_chunk_size]
+                
+                print(f"\nTraduction du chunk de rattrapage ({len(retry_chunk)} entrées)...")
+                
+                # Essayer de traduire avec plus de tentatives
+                translated_retry = translate_chunk_with_claude(retry_chunk, chunk_number, max_retries=5)
+                
+                if translated_retry:
+                    # Ajouter les entrées traduites
+                    for item in translated_retry:
+                        if item['id'] not in translated_ids:
+                            translated_data.append(item)
+                            translated_ids.add(item['id'])
+                    
+                    # Sauvegarder
+                    with open(output_file, 'w', encoding='utf-8') as f:
+                        json.dump(translated_data, f, indent=2, ensure_ascii=False)
+                    
+                    print(f"  ✓ Rattrapage réussi - Progression: {len(translated_data)}/{len(data)}")
+                    retry_position += len(retry_chunk)
+                else:
+                    # Si échec, réduire la taille ou passer à l'entrée suivante
+                    if safe_chunk_size > 1:
+                        safe_chunk_size = max(1, safe_chunk_size // 2)
+                        print(f"  Réduction de la taille de rattrapage à {safe_chunk_size}")
+                    else:
+                        print(f"  ❌ Impossible de traduire cette entrée, passage au suivant")
+                        retry_position += 1
+            
+            print(f"\nAprès rattrapage:")
+            print(f"  Entrées traduites: {len(translated_data)}/{len(data)}")
     
-    # Push vers GitHub si la traduction est complète
+    # Résultat final
     if len(translated_data) == len(data):
+        print("\n✅ Toutes les entrées ont été traduites avec succès!")
         push_to_github()
     else:
-        print("\n⚠️  Push annulé: la traduction n'est pas complète")
+        missing_final = len(data) - len(translated_data)
+        print(f"\n⚠️  {missing_final} entrées n'ont pas pu être traduites")
+        print("⚠️  Push annulé: la traduction n'est pas complète")
+        
+        # Sauvegarder les IDs des entrées non traduites pour debug
+        untranslated_ids = [item['id'] for item in data if item['id'] not in translated_ids]
+        with open('untranslated_ids.txt', 'w') as f:
+            f.write('\n'.join(untranslated_ids))
+        print(f"   Les IDs non traduits ont été sauvegardés dans untranslated_ids.txt")
 
 if __name__ == "__main__":
     main()
