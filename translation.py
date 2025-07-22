@@ -25,18 +25,69 @@ def download_latest_file():
         print(f"Erreur lors du téléchargement: {e}")
         return False
 
+def extract_json_from_response(response):
+    """Extrait le JSON de la réponse de Claude, même s'il y a du texte avant/après"""
+    # Rechercher le premier [ et le dernier ]
+    start = response.find('[')
+    end = response.rfind(']') + 1
+    
+    if start != -1 and end > start:
+        json_str = response[start:end]
+        try:
+            # Tenter de parser le JSON
+            return json.loads(json_str), json_str
+        except json.JSONDecodeError:
+            # Si ça échoue, essayer de nettoyer le JSON
+            # Supprimer les commentaires éventuels
+            lines = json_str.split('\n')
+            cleaned_lines = []
+            for line in lines:
+                # Supprimer les commentaires // 
+                comment_pos = line.find('//')
+                if comment_pos != -1:
+                    line = line[:comment_pos]
+                cleaned_lines.append(line)
+            
+            cleaned_json = '\n'.join(cleaned_lines)
+            try:
+                return json.loads(cleaned_json), cleaned_json
+            except:
+                pass
+    
+    # Essayer de trouver des objets JSON individuels
+    # Parfois Claude retourne {obj1}{obj2} au lieu de [{obj1},{obj2}]
+    import re
+    objects = re.findall(r'\{[^{}]*\}', response)
+    if objects:
+        try:
+            parsed_objects = [json.loads(obj) for obj in objects]
+            return parsed_objects, json.dumps(parsed_objects)
+        except:
+            pass
+    
+    return None, None
+
 def translate_chunk_with_claude(chunk, chunk_number, max_retries=3):
     """Traduit un chunk avec Claude avec réessais automatiques"""
     print(f"\nTraduction du chunk {chunk_number} ({len(chunk)} entrées)...")
     
     # Créer le prompt
-    prompt = """Traduis UNIQUEMENT le contenu JSON suivant en français.
-RÈGLES IMPORTANTES:
-- Ne modifie PAS les clés 'id', garde-les identiques
-- Traduis UNIQUEMENT les valeurs des clés 'body' et autres champs textuels
-- Retourne UNIQUEMENT le JSON traduit, sans aucune explication avant ou après
-- Le JSON doit commencer par [ et finir par ]
-- Le contexte de traduction est le suivant: il s'agit de règle du jeu warhammer 40000, donc le langage employé doit être très précis et refléter au maximum l'esprit de la règle en anglais.
+    prompt = """Tu dois traduire le JSON ci-dessous en français et retourner UNIQUEMENT le JSON traduit.
+
+RÈGLES CRITIQUES:
+1. Ta réponse doit commencer DIRECTEMENT par [ sans aucun texte avant
+2. Ta réponse doit se terminer par ] sans aucun texte après
+3. Ne jamais ajouter d'explication, de commentaire ou de texte en dehors du JSON
+4. Garder EXACTEMENT la même structure JSON
+5. Ne JAMAIS modifier les clés 'id' - elles doivent rester identiques
+6. Traduire les valeurs des clés 'body', 'name', 'description' et autres textes
+7. Contexte: règles de Warhammer 40000 - utiliser le vocabulaire technique approprié
+
+EXEMPLE de réponse CORRECTE:
+[{"id":"abc123","body":"Texte traduit en français","name":"Nom traduit"}]
+
+EXEMPLE de réponse INCORRECTE:
+Voici la traduction: [{"id":"abc123"...}]
 
 JSON à traduire:
 """
@@ -67,32 +118,26 @@ JSON à traduire:
             
             response = result.stdout.strip()
             
-            # Extraire le JSON de la réponse
-            start = response.find('[')
-            end = response.rfind(']') + 1
+            # Extraire le JSON de la réponse avec notre fonction améliorée
+            translated_chunk, extracted_json = extract_json_from_response(response)
             
-            if start != -1 and end > start:
-                json_str = response[start:end]
-                try:
-                    translated_chunk = json.loads(json_str)
-                    print(f"  ✓ Chunk traduit avec succès")
-                    return translated_chunk
-                except json.JSONDecodeError as e:
+            if translated_chunk:
+                print(f"  ✓ Chunk traduit avec succès")
+                # Vérifier que nous avons le bon nombre d'entrées
+                if len(translated_chunk) != len(chunk):
+                    print(f"  ⚠️  Attention: {len(chunk)} entrées envoyées, {len(translated_chunk)} reçues")
                     if attempt < max_retries - 1:
-                        print(f"  ✗ Erreur de parsing JSON, réessai...")
-                    else:
-                        print(f"  ✗ Erreur de parsing JSON après {max_retries} tentatives")
-                        print(f"  Réponse complète de Claude:")
-                        print("-" * 60)
-                        print(response)
-                        print("-" * 60)
-                        print(f"\nArrêt du script.")
-                        sys.exit(1)
+                        print(f"  Réessai...")
+                        continue
+                return translated_chunk
             else:
                 if attempt < max_retries - 1:
-                    print(f"  ✗ Pas de JSON trouvé dans la réponse, réessai...")
+                    print(f"  ✗ Impossible d'extraire du JSON valide, réessai...")
+                    # Afficher un aperçu de la réponse pour debug
+                    preview = response[:200] + "..." if len(response) > 200 else response
+                    print(f"  Aperçu de la réponse: {preview}")
                 else:
-                    print(f"  ✗ Pas de JSON trouvé après {max_retries} tentatives")
+                    print(f"  ✗ Impossible d'extraire du JSON après {max_retries} tentatives")
                     if "Execution error" in response or "error" in response.lower():
                         print(f"  Claude a renvoyé une erreur. Réduction de la taille du chunk.")
                         return None  # Retourner None pour que le script continue avec une taille plus petite
@@ -101,6 +146,12 @@ JSON à traduire:
                         print("-" * 60)
                         print(response)
                         print("-" * 60)
+                        # Sauvegarder la réponse problématique pour debug
+                        debug_file = f"debug_chunk_{chunk_number}_attempt_{attempt}.txt"
+                        with open(debug_file, 'w', encoding='utf-8') as f:
+                            f.write(f"Prompt:\n{full_prompt}\n\n")
+                            f.write(f"Réponse:\n{response}")
+                        print(f"  Réponse sauvegardée dans {debug_file}")
                         print(f"\nArrêt du script.")
                         sys.exit(1)
                     
