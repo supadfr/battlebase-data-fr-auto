@@ -15,8 +15,8 @@ def download_latest_file():
         response = requests.get(url)
         response.raise_for_status()
         
-        # Remplacer toutes les variantes d'apostrophes par des underscores
-        content = response.text
+        # Charger le JSON pour modifier uniquement les IDs
+        data = json.loads(response.text)
         
         # Liste des apostrophes à remplacer
         apostrophes_to_replace = [
@@ -33,14 +33,23 @@ def download_latest_file():
             "ʼ",  # U+02BC MODIFIER LETTER APOSTROPHE
         ]
         
-        for apostrophe in apostrophes_to_replace:
-            content = content.replace(apostrophe, "_")
+        # Remplacer les apostrophes dans les IDs uniquement
+        count = 0
+        for item in data:
+            if 'id' in item:
+                original_id = item['id']
+                new_id = original_id
+                for apostrophe in apostrophes_to_replace:
+                    new_id = new_id.replace(apostrophe, "_")
+                if new_id != original_id:
+                    item['id'] = new_id
+                    count += 1
         
-        print(f"Remplacement des apostrophes effectué ({len(apostrophes_to_replace)} types)")
+        print(f"Remplacement des apostrophes dans {count} IDs")
         
         # Sauvegarder avec le suffixe -en
         with open('battlebase-data-en.json', 'w', encoding='utf-8') as f:
-            f.write(content)
+            json.dump(data, f, indent=2, ensure_ascii=False)
         
         print("Fichier téléchargé avec succès (sauvegardé comme battlebase-data-en.json)")
         return True
