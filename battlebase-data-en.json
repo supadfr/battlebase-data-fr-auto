@@ -1959,7 +1959,7 @@
     "restrictionRules": null
   },
   {
-    "id": "stratagem-aeldari-seer's-eye",
+    "id": "stratagem-aeldari-seer_s-eye",
     "whenRules": "Your Shooting phase or the Fight phase.",
     "targetRules": "One AELDARI PSYKER model from your army and one friendly WRAITH CONSTRUCT unit within 12\" of it that has not been selected to shoot or fight this phase.",
     "effectRules": "Select one enemy unit visible to your PSYKER model. Until the end of the phase, each time a model in your WRAITH CONSTRUCT unit makes an attack that targets that enemy unit, you can ignore any or all modifiers to the Armour Penetration and/or Damage characteristics of that attack.",
@@ -2008,7 +2008,7 @@
     "restrictionRules": "Each model can only be targeted with this Stratagem once per battle."
   },
   {
-    "id": "stratagem-aeldari-heroes'-fall",
+    "id": "stratagem-aeldari-heroes_-fall",
     "whenRules": "Fight phase, just after an enemy unit has selected its targets.",
     "targetRules": "One HARLEQUINS unit from your army that was selected as the target of one or more of the attacking unit's attacks.",
     "effectRules": "Until the end of the phase, each time a model in your unit is destroyed, if that model has not fought this phase, roll one D6. On a 4+, do not remove the destroyed model from play; it can fight after the attacking unit has finished making its attacks, and is then removed from play.",
@@ -2022,7 +2022,7 @@
     "restrictionRules": null
   },
   {
-    "id": "stratagem-aeldari-tricksters'-retort",
+    "id": "stratagem-aeldari-tricksters_-retort",
     "whenRules": "Your opponent's Movement phase, just after an enemy unit ends a Normal, Advance or Fall Back move.",
     "targetRules": "One TROUPE unit from your army that is within 9\" of that enemy unit.",
     "effectRules": "Your unit can make a Normal move of up to 6\".",
@@ -2057,7 +2057,7 @@
     "restrictionRules": null
   },
   {
-    "id": "stratagem-aeldari-vaul's-vengeance",
+    "id": "stratagem-aeldari-vaul_s-vengeance",
     "whenRules": "Your opponent's Shooting phase or the Fight phase, just after an enemy unit destroys a DIRE AVENGERS or GUARDIANS unit from your army",
     "targetRules": "One WAR WALKERS unit from your army.",
     "effectRules": "After that enemy unit has finished making its attacks, your unit can shoot as if it were your Shooting phase, but when resolving those attacks, it can only target that enemy unit (and only if it is an eligible target).",
@@ -2155,7 +2155,7 @@
     "restrictionRules": null
   },
   {
-    "id": "stratagem-aeldari-isha's-fury",
+    "id": "stratagem-aeldari-isha_s-fury",
     "whenRules": "Your opponent's Movement phase, just after an enemy unit ends a Normal, Advance or Fall Back move.",
     "targetRules": "One ASURYANI PSYKER model from your army within 9\" of that enemy unit.",
     "effectRules": "Roll six D6: for each 3+, that enemy unit suffers 1 mortal wound.",
@@ -2204,7 +2204,7 @@
     "restrictionRules": null
   },
   {
-    "id": "stratagem-aeldari-khaine's-vengeance",
+    "id": "stratagem-aeldari-khaine_s-vengeance",
     "whenRules": "Your opponent's Movement phase, just after an enemy unit (excluding MONSTERS and VEHICLES) is selected to Fall Back.",
     "targetRules": "One ASPECT WARRIORS or AVATAR OF KHAINE unit from your army that is within Engagement Range of that enemy unit.",
     "effectRules": "All models in that enemy unit must take a Desperate Escape test. When doing so, if that enemy unit is Battle‑shocked, subtract 1 from each of those tests.",
@@ -2573,7 +2573,7 @@
     "restrictionRules": null
   },
   {
-    "id": "stratagem-black-templars-crusader’s-wrath",
+    "id": "stratagem-black-templars-crusader_s-wrath",
     "lore": "The Black Templars channel their fervour into a hate-fuelled flurry of blows.",
     "whenRules": "Fight phase.",
     "targetRules": "One Adeptus Astartes unit from your army that has not been selected to fight this phase.",
@@ -2805,7 +2805,7 @@
     "restrictionRules": null
   },
   {
-    "id": "stratagem-blood-angels-angel’s-sacrifice",
+    "id": "stratagem-blood-angels-angel_s-sacrifice",
     "lore": "The Blood Angels would gladly put themselves in harm’s way to protect others, exemplifying the sacrifice of Sanguinius.",
     "whenRules": "Any phase.",
     "targetRules": "One Adeptus Astartes Character unit from your army that was just destroyed. You can use this Stratagem on that unit even though it was just destroyed.",
@@ -5473,7 +5473,7 @@
     "restrictionRules": null
   },
   {
-    "id": "stratagem-imperial-knights-squires’-duty",
+    "id": "stratagem-imperial-knights-squires_-duty",
     "lore": "Under the scrutiny and judgement of their Noble betters, Armiger pilots will redouble their efforts, attacking as one to smash aside their foes.",
     "whenRules": "The start of your Shooting phase or the start of the Fight phase.",
     "targetRules": "Two or more Armiger models from your army and one enemy unit that is an eligible target for all of those Armiger models.",
@@ -6249,7 +6249,7 @@
     "restrictionRules": null
   },
   {
-    "id": "stratagem-orks-’ard-as-nails",
+    "id": "stratagem-orks-_ard-as-nails",
     "lore": "Even the lowliest Ork Boy can take a tremendous amount of punishment before being slain.",
     "whenRules": "Your opponent’s Shooting phase or the Fight phase, just after an enemy unit has selected its targets.",
     "targetRules": "One Orks unit from your army that was selected as the target of one or more of the attacking unit’s attacks.",
@@ -6265,7 +6265,7 @@
     "restrictionRules": null
   },
   {
-    "id": "stratagem-orks-’ere-we-go",
+    "id": "stratagem-orks-_ere-we-go",
     "lore": "Even lumbering Orks can put on a surprising turn of speed when the promise of a good face-to-face fight is in the offing. Once a horde of Orks get a sight of the foe, nothing can stop them.",
     "whenRules": "Start of your Movement phase.",
     "targetRules": "One Orks Infantry unit from your army.",

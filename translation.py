@@ -346,7 +346,7 @@ def push_to_github():
 
 def main():
     # Mode debug pour tester uniquement les entrées problématiques
-    DEBUG_MODE = True
+    DEBUG_MODE = False
     DEBUG_IDS = [
         "stratagem-black-templars-crusader_s-wrath",
         "stratagem-blood-angels-angel_s-sacrifice",
@@ -622,6 +622,16 @@ Retourne UNIQUEMENT le JSON traduit, sans texte avant ou après."""
         if len(missing_entries) == missing:
             print(f"\n⚠️  Aucun progrès dans ce round de rattrapage")
             break
+    
+    # Remplacer les _ par des ’ dans tous les IDs
+    print("\nRemplacement des _ par des ’ dans les IDs...")
+    for item in translated_data:
+        if 'id' in item:
+            item['id'] = item['id'].replace('_', '’')
+    
+    # Sauvegarder avec les IDs modifiés
+    with open(output_file, 'w', encoding='utf-8') as f:
+        json.dump(translated_data, f, indent=2, ensure_ascii=False)
     
     # Résultat final
     if len(translated_data) == len(data):
