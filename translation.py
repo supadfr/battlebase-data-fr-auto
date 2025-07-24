@@ -101,7 +101,8 @@ def preprocess_chunk_for_translation(chunk):
         
         # Si l'ID contient des apostrophes, créer un ID temporaire
         if "'" in original_id:
-            temp_id = f"TEMP_ID_{i}_{original_id.replace('\'', '_APOS_')}"
+            id_safe = original_id.replace("'", "_APOS_")
+            temp_id = f"TEMP_ID_{i}_{id_safe}"
             item_copy['id'] = temp_id
             id_mapping[temp_id] = original_id
         
