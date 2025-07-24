@@ -36,23 +36,45 @@ def extract_json_from_response(response):
         try:
             # Tenter de parser le JSON
             return json.loads(json_str), json_str
-        except json.JSONDecodeError:
+        except json.JSONDecodeError as e:
             # Si ça échoue, essayer de nettoyer le JSON
-            # Supprimer les commentaires éventuels
-            lines = json_str.split('\n')
-            cleaned_lines = []
-            for line in lines:
-                # Supprimer les commentaires // 
-                comment_pos = line.find('//')
-                if comment_pos != -1:
-                    line = line[:comment_pos]
-                cleaned_lines.append(line)
+            # D'abord, essayer de corriger les apostrophes mal échappées
+            json_str_fixed = json_str
             
-            cleaned_json = '\n'.join(cleaned_lines)
+            # Remplacer les apostrophes non échappées dans les valeurs JSON
+            # Mais pas dans les IDs (qui sont entre "id": " et ")
+            import re
+            # Protéger les IDs en les remplaçant temporairement
+            id_pattern = r'("id"\s*:\s*"[^"]*")'
+            ids = re.findall(id_pattern, json_str_fixed)
+            for i, id_match in enumerate(ids):
+                json_str_fixed = json_str_fixed.replace(id_match, f"__ID_PLACEHOLDER_{i}__")
+            
+            # Maintenant échapper les apostrophes dans le reste
+            json_str_fixed = json_str_fixed.replace("'", "\\'")
+            
+            # Restaurer les IDs
+            for i, id_match in enumerate(ids):
+                json_str_fixed = json_str_fixed.replace(f"__ID_PLACEHOLDER_{i}__", id_match)
+            
             try:
-                return json.loads(cleaned_json), cleaned_json
+                return json.loads(json_str_fixed), json_str_fixed
             except:
-                pass
+                # Si ça échoue toujours, essayer de supprimer les commentaires
+                lines = json_str.split('\n')
+                cleaned_lines = []
+                for line in lines:
+                    # Supprimer les commentaires // 
+                    comment_pos = line.find('//')
+                    if comment_pos != -1:
+                        line = line[:comment_pos]
+                    cleaned_lines.append(line)
+                
+                cleaned_json = '\n'.join(cleaned_lines)
+                try:
+                    return json.loads(cleaned_json), cleaned_json
+                except:
+                    pass
     
     # Essayer de trouver des objets JSON individuels
     # Parfois Claude retourne {obj1}{obj2} au lieu de [{obj1},{obj2}]
@@ -80,8 +102,10 @@ RÈGLES CRITIQUES:
 3. Ne jamais ajouter d'explication, de commentaire ou de texte en dehors du JSON
 4. Garder EXACTEMENT la même structure JSON
 5. Ne JAMAIS modifier les clés 'id' - elles doivent rester identiques
-6. Traduire les valeurs des clés 'body', 'name', 'description' et autres textes
+6. Traduire les valeurs des clés 'body', 'name', 'description', 'lore', 'whenRules', 'targetRules', 'effectRules', 'restrictionRules' et autres textes
 7. Contexte: règles de Warhammer 40000 - utiliser le vocabulaire technique approprié
+8. IMPORTANT: Les apostrophes dans les IDs (comme "crusader's-wrath") doivent être conservées EXACTEMENT comme dans l'original
+9. Pour les valeurs null, garder null (pas "null" en string)
 
 EXEMPLE de réponse CORRECTE:
 [{"id":"abc123","body":"Texte traduit en français","name":"Nom traduit"}]
@@ -167,6 +191,13 @@ JSON à traduire:
                 print(f"  Réessai...")
             else:
                 print(f"  ✗ Échec après {max_retries} tentatives")
+                # Debug: afficher les IDs du chunk pour voir s'il y a des apostrophes
+                ids_in_chunk = [item.get('id', 'NO_ID') for item in chunk]
+                if any("'" in id for id in ids_in_chunk):
+                    print(f"  ⚠️  Ce chunk contient des IDs avec apostrophes:")
+                    for id in ids_in_chunk:
+                        if "'" in id:
+                            print(f"     - {id}")
                 return None
     
     return None
@@ -346,7 +377,39 @@ def main():
         if missing_entries:
             print(f"\nPhase de rattrapage pour {len(missing_entries)} entrées...")
             
-            # Utiliser une taille de chunk sûre pour le rattrapage
+            # Afficher les IDs manquants pour debug
+            print("\nEntrées manquantes:")
+            apostrophe_entries = []
+            for entry in missing_entries[:10]:  # Afficher max 10 pour ne pas encombrer
+                if "'" in entry['id']:
+                    print(f"  - {entry['id']} (contient apostrophe)")
+                    apostrophe_entries.append(entry)
+                else:
+                    print(f"  - {entry['id']}")
+            if len(missing_entries) > 10:
+                print(f"  ... et {len(missing_entries) - 10} autres")
+            
+            # Traiter d'abord les entrées avec apostrophes individuellement
+            if apostrophe_entries:
+                print(f"\nTraitement spécial pour {len(apostrophe_entries)} entrées avec apostrophes...")
+                for entry in apostrophe_entries:
+                    chunk_number += 1
+                    print(f"\nTraduction individuelle de: {entry['id']}")
+                    translated_single = translate_chunk_with_claude([entry], chunk_number, max_retries=5)
+                    if translated_single:
+                        for item in translated_single:
+                            if item['id'] not in translated_ids:
+                                translated_data.append(item)
+                                translated_ids.add(item['id'])
+                                missing_entries.remove(entry)
+                        # Sauvegarder
+                        with open(output_file, 'w', encoding='utf-8') as f:
+                            json.dump(translated_data, f, indent=2, ensure_ascii=False)
+                        print(f"  ✓ Traduit avec succès")
+                    else:
+                        print(f"  ✗ Échec de la traduction")
+            
+            # Utiliser une taille de chunk sûre pour le rattrapage du reste
             safe_chunk_size = min(6, optimal_chunk_size or 6)
             retry_position = 0
             
