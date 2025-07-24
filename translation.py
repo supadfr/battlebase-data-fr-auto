@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 import json
 import subprocess
 import requests
@@ -18,19 +19,19 @@ def download_latest_file():
         # Charger le JSON pour modifier uniquement les IDs
         data = json.loads(response.text)
         
-        # Liste des apostrophes à remplacer
+        # Liste des apostrophes à remplacer (utilisation des codes Unicode)
         apostrophes_to_replace = [
-            "'",  # U+0027 APOSTROPHE
-            "'",  # U+2019 RIGHT SINGLE QUOTATION MARK
-            "'",  # U+2018 LEFT SINGLE QUOTATION MARK
-            "‚",  # U+201A SINGLE LOW-9 QUOTATION MARK
-            "‛",  # U+201B SINGLE HIGH-REVERSED-9 QUOTATION MARK
-            "´",  # U+00B4 ACUTE ACCENT
-            "`",  # U+0060 GRAVE ACCENT
-            "′",  # U+2032 PRIME
-            "‵",  # U+2035 REVERSED PRIME
-            "ʹ",  # U+02B9 MODIFIER LETTER PRIME
-            "ʼ",  # U+02BC MODIFIER LETTER APOSTROPHE
+            "\u0027",  # U+0027 APOSTROPHE
+            "\u2019",  # U+2019 RIGHT SINGLE QUOTATION MARK
+            "\u2018",  # U+2018 LEFT SINGLE QUOTATION MARK
+            "\u201A",  # U+201A SINGLE LOW-9 QUOTATION MARK
+            "\u201B",  # U+201B SINGLE HIGH-REVERSED-9 QUOTATION MARK
+            "\u00B4",  # U+00B4 ACUTE ACCENT
+            "\u0060",  # U+0060 GRAVE ACCENT
+            "\u2032",  # U+2032 PRIME
+            "\u2035",  # U+2035 REVERSED PRIME
+            "\u02B9",  # U+02B9 MODIFIER LETTER PRIME
+            "\u02BC",  # U+02BC MODIFIER LETTER APOSTROPHE
         ]
         
         # Remplacer les apostrophes dans les IDs uniquement
