@@ -15,9 +15,32 @@ def download_latest_file():
         response = requests.get(url)
         response.raise_for_status()
         
+        # Remplacer toutes les variantes d'apostrophes par des underscores
+        content = response.text
+        
+        # Liste des apostrophes à remplacer
+        apostrophes_to_replace = [
+            "'",  # U+0027 APOSTROPHE
+            "'",  # U+2019 RIGHT SINGLE QUOTATION MARK
+            "'",  # U+2018 LEFT SINGLE QUOTATION MARK
+            "‚",  # U+201A SINGLE LOW-9 QUOTATION MARK
+            "‛",  # U+201B SINGLE HIGH-REVERSED-9 QUOTATION MARK
+            "´",  # U+00B4 ACUTE ACCENT
+            "`",  # U+0060 GRAVE ACCENT
+            "′",  # U+2032 PRIME
+            "‵",  # U+2035 REVERSED PRIME
+            "ʹ",  # U+02B9 MODIFIER LETTER PRIME
+            "ʼ",  # U+02BC MODIFIER LETTER APOSTROPHE
+        ]
+        
+        for apostrophe in apostrophes_to_replace:
+            content = content.replace(apostrophe, "_")
+        
+        print(f"Remplacement des apostrophes effectué ({len(apostrophes_to_replace)} types)")
+        
         # Sauvegarder avec le suffixe -en
         with open('battlebase-data-en.json', 'w', encoding='utf-8') as f:
-            f.write(response.text)
+            f.write(content)
         
         print("Fichier téléchargé avec succès (sauvegardé comme battlebase-data-en.json)")
         return True
@@ -128,14 +151,10 @@ def translate_chunk_with_claude(chunk, chunk_number, max_retries=3):
     """Traduit un chunk avec Claude avec réessais automatiques"""
     print(f"\nTraduction du chunk {chunk_number} ({len(chunk)} entrées)...")
     
-    # Vérifier s'il y a des entrées avec apostrophes (normale ou typographique)
-    has_apostrophes = any("'" in item.get('id', '') or "'" in item.get('id', '') for item in chunk)
-    if has_apostrophes:
-        print("  ℹ️  Détection d'IDs avec apostrophes - utilisation du prétraitement")
-        processed_chunk, id_mapping = preprocess_chunk_for_translation(chunk)
-    else:
-        processed_chunk = chunk
-        id_mapping = {}
+    # Plus besoin de prétraitement, les apostrophes ont déjà été remplacées
+    processed_chunk = chunk
+    id_mapping = {}
+    has_apostrophes = False
     
     # Créer le prompt
     prompt = """Tu dois traduire le JSON ci-dessous en français et retourner UNIQUEMENT le JSON traduit.
@@ -148,7 +167,7 @@ RÈGLES CRITIQUES:
 5. Ne JAMAIS modifier les clés 'id' - elles doivent rester identiques
 6. Traduire les valeurs des clés 'body', 'name', 'description', 'lore', 'whenRules', 'targetRules', 'effectRules', 'restrictionRules' et autres textes
 7. Contexte: règles de Warhammer 40000 - utiliser le vocabulaire technique approprié
-8. IMPORTANT: Les apostrophes dans les IDs (comme "crusader's-wrath") doivent être conservées EXACTEMENT comme dans l'original
+8. IMPORTANT: Les underscores (_) dans les IDs remplacent des apostrophes et doivent être conservés EXACTEMENT
 9. Pour les valeurs null, garder null (pas "null" en string)
 
 EXEMPLE de réponse CORRECTE:
@@ -319,11 +338,11 @@ def main():
     # Mode debug pour tester uniquement les entrées problématiques
     DEBUG_MODE = True
     DEBUG_IDS = [
-        "stratagem-black-templars-crusader's-wrath",  # Apostrophe simple
-        "stratagem-blood-angels-angel's-sacrifice",
-        "stratagem-imperial-knights-squires'-duty", 
-        "stratagem-orks-'ard-as-nails",
-        "stratagem-orks-'ere-we-go"
+        "stratagem-black-templars-crusader_s-wrath",
+        "stratagem-blood-angels-angel_s-sacrifice",
+        "stratagem-imperial-knights-squires_-duty",
+        "stratagem-orks-_ard-as-nails",
+        "stratagem-orks-_ere-we-go",
     ]
     
     # Télécharger le fichier
