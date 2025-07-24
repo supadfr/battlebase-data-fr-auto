@@ -99,9 +99,9 @@ def preprocess_chunk_for_translation(chunk):
         item_copy = item.copy()
         original_id = item_copy['id']
         
-        # Si l'ID contient des apostrophes, créer un ID temporaire
-        if "'" in original_id:
-            id_safe = original_id.replace("'", "_APOS_")
+        # Si l'ID contient des apostrophes (normale ou typographique), créer un ID temporaire
+        if "'" in original_id or "'" in original_id:
+            id_safe = original_id.replace("'", "_APOS_").replace("'", "_APOS_")
             temp_id = f"TEMP_ID_{i}_{id_safe}"
             item_copy['id'] = temp_id
             id_mapping[temp_id] = original_id
@@ -128,8 +128,8 @@ def translate_chunk_with_claude(chunk, chunk_number, max_retries=3):
     """Traduit un chunk avec Claude avec réessais automatiques"""
     print(f"\nTraduction du chunk {chunk_number} ({len(chunk)} entrées)...")
     
-    # Vérifier s'il y a des entrées avec apostrophes
-    has_apostrophes = any("'" in item.get('id', '') for item in chunk)
+    # Vérifier s'il y a des entrées avec apostrophes (normale ou typographique)
+    has_apostrophes = any("'" in item.get('id', '') or "'" in item.get('id', '') for item in chunk)
     if has_apostrophes:
         print("  ℹ️  Détection d'IDs avec apostrophes - utilisation du prétraitement")
         processed_chunk, id_mapping = preprocess_chunk_for_translation(chunk)
@@ -319,9 +319,9 @@ def main():
     # Mode debug pour tester uniquement les entrées problématiques
     DEBUG_MODE = True
     DEBUG_IDS = [
-        "stratagem-black-templars-crusader's-wrath",
+        "stratagem-black-templars-crusader's-wrath",  # Apostrophe typographique
         "stratagem-blood-angels-angel's-sacrifice",
-        "stratagem-imperial-knights-squires'-duty",
+        "stratagem-imperial-knights-squires'-duty", 
         "stratagem-orks-'ard-as-nails",
         "stratagem-orks-'ere-we-go"
     ]
