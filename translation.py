@@ -195,7 +195,8 @@ JSON à traduire:
             
             # Debug: afficher la réponse pour les entrées avec apostrophes
             if has_apostrophes:
-                print(f"  [DEBUG] Réponse de Claude (première ligne): {response.split('\n')[0][:100]}...")
+                first_line = response.split('\n')[0][:100]
+                print(f"  [DEBUG] Réponse de Claude (première ligne): {first_line}...")
                 if len(response) < 1000:
                     print(f"  [DEBUG] Réponse complète:\n{response}")
             
