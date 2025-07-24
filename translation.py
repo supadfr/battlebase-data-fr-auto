@@ -319,7 +319,7 @@ def main():
     # Mode debug pour tester uniquement les entrées problématiques
     DEBUG_MODE = True
     DEBUG_IDS = [
-        "stratagem-black-templars-crusader's-wrath",  # Apostrophe typographique
+        "stratagem-black-templars-crusader's-wrath",  # Apostrophe simple
         "stratagem-blood-angels-angel's-sacrifice",
         "stratagem-imperial-knights-squires'-duty", 
         "stratagem-orks-'ard-as-nails",
