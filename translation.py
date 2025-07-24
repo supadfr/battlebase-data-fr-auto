@@ -163,6 +163,12 @@ JSON à traduire:
     chunk_json = json.dumps(processed_chunk, indent=2, ensure_ascii=False)
     full_prompt = prompt + chunk_json
     
+    # Debug: afficher le JSON envoyé pour les entrées avec apostrophes
+    if has_apostrophes:
+        print(f"  [DEBUG] JSON envoyé (après prétraitement):")
+        for item in processed_chunk:
+            print(f"    ID: {item['id']}")
+    
     for attempt in range(max_retries):
         try:
             # Appeler Claude
@@ -186,6 +192,12 @@ JSON à traduire:
                 continue
             
             response = result.stdout.strip()
+            
+            # Debug: afficher la réponse pour les entrées avec apostrophes
+            if has_apostrophes:
+                print(f"  [DEBUG] Réponse de Claude (première ligne): {response.split('\n')[0][:100]}...")
+                if len(response) < 1000:
+                    print(f"  [DEBUG] Réponse complète:\n{response}")
             
             # Extraire le JSON de la réponse avec notre fonction améliorée
             translated_chunk, extracted_json = extract_json_from_response(response)
@@ -303,6 +315,16 @@ def push_to_github():
         return False
 
 def main():
+    # Mode debug pour tester uniquement les entrées problématiques
+    DEBUG_MODE = True
+    DEBUG_IDS = [
+        "stratagem-black-templars-crusader's-wrath",
+        "stratagem-blood-angels-angel's-sacrifice",
+        "stratagem-imperial-knights-squires'-duty",
+        "stratagem-orks-'ard-as-nails",
+        "stratagem-orks-'ere-we-go"
+    ]
+    
     # Télécharger le fichier
     if not download_latest_file():
         return
@@ -313,6 +335,16 @@ def main():
         data = json.load(f)
     
     print(f"Total: {len(data)} entrées")
+    
+    # En mode debug, filtrer uniquement les entrées problématiques
+    if DEBUG_MODE:
+        print("\n⚠️  MODE DEBUG ACTIVÉ - Traitement uniquement des entrées problématiques")
+        original_data = data
+        data = [item for item in data if item['id'] in DEBUG_IDS]
+        print(f"Entrées à traiter en mode debug: {len(data)}")
+        for item in data:
+            print(f"  - {item['id']}")
+            print(f"    Contenu: {json.dumps(item, indent=6, ensure_ascii=False)[:200]}...")
     
     # Initialiser
     translated_data = []
@@ -564,7 +596,10 @@ Retourne UNIQUEMENT le JSON traduit, sans texte avant ou après."""
     # Résultat final
     if len(translated_data) == len(data):
         print("\n✅ Toutes les entrées ont été traduites avec succès!")
-        push_to_github()
+        if not DEBUG_MODE:
+            push_to_github()
+        else:
+            print("⚠️  Mode debug activé - pas de push vers GitHub")
     else:
         missing_final = len(data) - len(translated_data)
         print(f"\n⚠️  {missing_final} entrées n'ont pas pu être traduites après {retry_round} rounds de rattrapage")
