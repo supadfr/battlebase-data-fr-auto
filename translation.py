@@ -89,9 +89,52 @@ def extract_json_from_response(response):
     
     return None, None
 
+def preprocess_chunk_for_translation(chunk):
+    """Prétraite un chunk pour éviter les problèmes avec les apostrophes"""
+    # Créer une copie pour ne pas modifier l'original
+    processed_chunk = []
+    id_mapping = {}
+    
+    for i, item in enumerate(chunk):
+        item_copy = item.copy()
+        original_id = item_copy['id']
+        
+        # Si l'ID contient des apostrophes, créer un ID temporaire
+        if "'" in original_id:
+            temp_id = f"TEMP_ID_{i}_{original_id.replace('\'', '_APOS_')}"
+            item_copy['id'] = temp_id
+            id_mapping[temp_id] = original_id
+        
+        processed_chunk.append(item_copy)
+    
+    return processed_chunk, id_mapping
+
+def postprocess_translated_chunk(translated_chunk, id_mapping):
+    """Restaure les IDs originaux après traduction"""
+    if not id_mapping:
+        return translated_chunk
+    
+    processed = []
+    for item in translated_chunk:
+        item_copy = item.copy()
+        if item_copy['id'] in id_mapping:
+            item_copy['id'] = id_mapping[item_copy['id']]
+        processed.append(item_copy)
+    
+    return processed
+
 def translate_chunk_with_claude(chunk, chunk_number, max_retries=3):
     """Traduit un chunk avec Claude avec réessais automatiques"""
     print(f"\nTraduction du chunk {chunk_number} ({len(chunk)} entrées)...")
+    
+    # Vérifier s'il y a des entrées avec apostrophes
+    has_apostrophes = any("'" in item.get('id', '') for item in chunk)
+    if has_apostrophes:
+        print("  ℹ️  Détection d'IDs avec apostrophes - utilisation du prétraitement")
+        processed_chunk, id_mapping = preprocess_chunk_for_translation(chunk)
+    else:
+        processed_chunk = chunk
+        id_mapping = {}
     
     # Créer le prompt
     prompt = """Tu dois traduire le JSON ci-dessous en français et retourner UNIQUEMENT le JSON traduit.
@@ -116,7 +159,7 @@ Voici la traduction: [{"id":"abc123"...}]
 JSON à traduire:
 """
     
-    chunk_json = json.dumps(chunk, indent=2, ensure_ascii=False)
+    chunk_json = json.dumps(processed_chunk, indent=2, ensure_ascii=False)
     full_prompt = prompt + chunk_json
     
     for attempt in range(max_retries):
@@ -147,10 +190,21 @@ JSON à traduire:
             translated_chunk, extracted_json = extract_json_from_response(response)
             
             if translated_chunk:
+                # Restaurer les IDs originaux si nécessaire
+                if id_mapping:
+                    translated_chunk = postprocess_translated_chunk(translated_chunk, id_mapping)
+                    print(f"  ✓ IDs originaux restaurés")
+                
                 print(f"  ✓ Chunk traduit avec succès")
                 # Vérifier que nous avons le bon nombre d'entrées
                 if len(translated_chunk) != len(chunk):
                     print(f"  ⚠️  Attention: {len(chunk)} entrées envoyées, {len(translated_chunk)} reçues")
+                    # Afficher les IDs manquants
+                    sent_ids = {item['id'] for item in chunk}
+                    received_ids = {item['id'] for item in translated_chunk}
+                    missing_ids = sent_ids - received_ids
+                    if missing_ids:
+                        print(f"  IDs manquants dans la réponse: {missing_ids}")
                     if attempt < max_retries - 1:
                         print(f"  Réessai...")
                         continue
@@ -366,9 +420,15 @@ def main():
     if optimal_chunk_size:
         print(f"  Taille optimale utilisée: {optimal_chunk_size} entrées par chunk")
     
-    # Vérifier s'il manque des entrées
-    if len(translated_data) < len(data):
+    # Vérifier s'il manque des entrées - boucle jusqu'à ce que tout soit traduit ou qu'on ne progresse plus
+    max_retry_rounds = 3
+    retry_round = 0
+    
+    while len(translated_data) < len(data) and retry_round < max_retry_rounds:
+        retry_round += 1
         missing = len(data) - len(translated_data)
+        print(f"\n{'='*60}")
+        print(f"Round de rattrapage {retry_round}/{max_retry_rounds}")
         print(f"  ⚠️  {missing} entrées manquantes")
         
         # Identifier précisément les entrées manquantes
@@ -397,17 +457,64 @@ def main():
                     print(f"\nTraduction individuelle de: {entry['id']}")
                     translated_single = translate_chunk_with_claude([entry], chunk_number, max_retries=5)
                     if translated_single:
+                        added = False
                         for item in translated_single:
-                            if item['id'] not in translated_ids:
+                            if item['id'] not in translated_ids and item['id'] == entry['id']:
                                 translated_data.append(item)
                                 translated_ids.add(item['id'])
                                 missing_entries.remove(entry)
+                                added = True
                         # Sauvegarder
                         with open(output_file, 'w', encoding='utf-8') as f:
                             json.dump(translated_data, f, indent=2, ensure_ascii=False)
-                        print(f"  ✓ Traduit avec succès")
+                        if added:
+                            print(f"  ✓ Traduit avec succès")
+                        else:
+                            print(f"  ⚠️  Traduit mais ID non correspondant")
                     else:
                         print(f"  ✗ Échec de la traduction")
+                        # Essayer une approche manuelle en dernier recours
+                        print(f"  Tentative de traduction manuelle...")
+                        manual_prompt = f"""Traduis ce stratagème Warhammer 40000 en français. Retourne UNIQUEMENT un objet JSON valide.
+
+{json.dumps(entry, indent=2, ensure_ascii=False)}
+
+RÈGLES:
+- Garde l'ID exactement comme il est (avec l'apostrophe)
+- Traduis "lore", "whenRules", "targetRules", "effectRules", "restrictionRules"
+- Pour null, garde null
+
+Retourne UNIQUEMENT le JSON traduit, sans texte avant ou après."""
+                        
+                        try:
+                            result = subprocess.run(
+                                ['claude'],
+                                input=manual_prompt,
+                                capture_output=True,
+                                text=True,
+                                encoding='utf-8',
+                                timeout=60
+                            )
+                            
+                            if result.returncode == 0:
+                                response = result.stdout.strip()
+                                # Essayer d'extraire un objet JSON unique
+                                import re
+                                json_match = re.search(r'\{[^{}]*\}', response, re.DOTALL)
+                                if json_match:
+                                    try:
+                                        translated_obj = json.loads(json_match.group())
+                                        if translated_obj['id'] == entry['id']:
+                                            translated_data.append(translated_obj)
+                                            translated_ids.add(translated_obj['id'])
+                                            missing_entries.remove(entry)
+                                            with open(output_file, 'w', encoding='utf-8') as f:
+                                                json.dump(translated_data, f, indent=2, ensure_ascii=False)
+                                            print(f"    ✓ Traduction manuelle réussie!")
+                                    except:
+                                        print(f"    ✗ Échec du parsing JSON manuel")
+                        except:
+                            print(f"    ✗ Échec de la traduction manuelle")
             
             # Utiliser une taille de chunk sûre pour le rattrapage du reste
             safe_chunk_size = min(6, optimal_chunk_size or 6)
@@ -447,6 +554,11 @@ def main():
             
             print(f"\nAprès rattrapage:")
             print(f"  Entrées traduites: {len(translated_data)}/{len(data)}")
+        
+        # Si on n'a fait aucun progrès, arrêter
+        if len(missing_entries) == missing:
+            print(f"\n⚠️  Aucun progrès dans ce round de rattrapage")
+            break
     
     # Résultat final
     if len(translated_data) == len(data):
@@ -454,7 +566,7 @@ def main():
         push_to_github()
     else:
         missing_final = len(data) - len(translated_data)
-        print(f"\n⚠️  {missing_final} entrées n'ont pas pu être traduites")
+        print(f"\n⚠️  {missing_final} entrées n'ont pas pu être traduites après {retry_round} rounds de rattrapage")
         print("⚠️  Push annulé: la traduction n'est pas complète")
         
         # Sauvegarder les IDs des entrées non traduites pour debug
