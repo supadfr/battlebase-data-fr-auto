@@ -623,11 +623,11 @@ Retourne UNIQUEMENT le JSON traduit, sans texte avant ou après."""
             print(f"\n⚠️  Aucun progrès dans ce round de rattrapage")
             break
     
-    # Remplacer les _ par des ’ dans tous les IDs
-    print("\nRemplacement des _ par des ’ dans les IDs...")
+    # Remplacer les _ par des - dans tous les IDs
+    print("\nRemplacement des _ par des - dans les IDs...")
     for item in translated_data:
         if 'id' in item:
-            item['id'] = item['id'].replace('_', '’')
+            item['id'] = item['id'].replace('_', '-')
     
     # Sauvegarder avec les IDs modifiés
     with open(output_file, 'w', encoding='utf-8') as f:
@@ -646,10 +646,16 @@ Retourne UNIQUEMENT le JSON traduit, sans texte avant ou après."""
         print("⚠️  Push annulé: la traduction n'est pas complète")
         
         # Sauvegarder les IDs des entrées non traduites pour debug
-        untranslated_ids = [item['id'] for item in data if item['id'] not in translated_ids]
-        with open('untranslated_ids.txt', 'w') as f:
-            f.write('\n'.join(untranslated_ids))
-        print(f"   Les IDs non traduits ont été sauvegardés dans untranslated_ids.txt")
+        # Normaliser les IDs pour la comparaison (remplacer ' par _)
+        normalized_translated_ids = {id.replace("'", "_") for id in translated_ids}
+        untranslated_ids = [item['id'] for item in data if item['id'].replace("'", "_") not in normalized_translated_ids]
+        with open('untranslated_ids.txt', 'w', encoding='utf-8') as f:
+            if untranslated_ids:
+                f.write('\n'.join(untranslated_ids))
+                print(f"   {len(untranslated_ids)} IDs non traduits ont été sauvegardés dans untranslated_ids.txt")
+            else:
+                f.write("Aucun ID non traduit trouvé")
+                print("   ⚠️  Aucun ID non traduit trouvé dans la liste")
 
 if __name__ == "__main__":
     main()
