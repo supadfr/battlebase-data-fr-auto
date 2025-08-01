@@ -1,42 +1,777 @@
 [
   {
-    "id": "stratagem-black-templars-crusader’s-wrath",
-    "lore": "Les Black Templars canalisent leur ferveur en une avalanche de coups alimentée par la haine.",
-    "whenRules": "Phase de combat.",
-    "targetRules": "Une unité Adeptus Astartes de votre armée qui n'a pas été sélectionnée pour combattre durant cette phase.",
-    "effectRules": "Jusqu'à la fin de la phase, chaque fois qu'une figurine de votre unité effectue une attaque de mêlée, améliorez de 1 la caractéristique de Pénétration d'armure de cette attaque. Si le vœu Ne Souffrez Pas que l'Impur Vive est actif pour votre armée, ajoutez également 1 à la caractéristique de Force de cette attaque.",
-    "restrictionRules": null
+    "id": "setup-rule-muster-armies",
+    "body": "Les joueurs rassemblent d'abord leurs armées, comme décrit dans les Règles de Base. N'oubliez pas que tous les détails de l'armée d'un joueur doivent être enregistrés sur sa Liste d'Armée."
   },
   {
-    "id": "stratagem-blood-angels-angel’s-sacrifice",
-    "lore": "Les Blood Angels se mettraient volontiers en danger pour protéger les autres, incarnant le sacrifice de Sanguinius.",
+    "id": "setup-rule-determine-mission",
+    "body": "Les joueurs séparent les cartes dans leurs paquets respectifs : paquet de Déploiement : paquet de Règles de Mission ; paquet de Mission Primaire ; paquets de Mission Secondaire (un pour l'Attaquant, un pour le Défenseur) ; paquets de Stratagème (un pour l'Attaquant, un pour le Défenseur). Mettez de côté les paquets de Mission Secondaire et de Stratagème (les joueurs les recevront plus tard).\n\nLes joueurs déterminent leur mission en mélangeant et en tirant aléatoirement une carte des paquets de Déploiement, de Règles de Mission et de Mission Primaire."
+  },
+  {
+    "id": "setup-rule-read-mission",
+    "body": "Ensuite, les joueurs lisent les cartes de Mission Primaire et de Règles de Mission qu'ils ont tirées.\n\nLa carte de Mission Primaire détaille comment et quand les joueurs marquent des points de Victoire (PV). Les joueurs marqueront également des PV en accomplissant des Missions Secondaires et des Stratagèmes, détaillés plus loin. Certaines cartes de Mission Primaire incluent également des règles supplémentaires qui s'appliqueront à la bataille.\n\nLa carte de Règles de Mission détaille toutes les règles spéciales qui s'appliquent pendant toute la durée de la bataille. Les joueurs doivent lire et se familiariser avec celles-ci avant de continuer."
+  },
+  {
+    "id": "setup-rule-place-objective-markers",
+    "body": "Les joueurs placent maintenant les marqueurs d'objectif sur le champ de bataille. La carte de déploiement de chaque carte de Déploiement montrera aux joueurs combien de marqueurs d'objectif placer et où chacun doit être placé."
+  },
+  {
+    "id": "setup-rule-create-the-battlefield",
+    "body": "Les joueurs créent maintenant le champ de bataille et installent les éléments de terrain.\n\nLes missions se jouent sur des champs de bataille rectangulaires dont les dimensions sont approximativement de 44\" par 60\". Cela peut être réalisé en plaçant quatre plateaux de Zone de Bataille à plat sur une surface les uns à côté des autres.\n\nSauf indication contraire, lors de l'installation des éléments de terrain, utilisez les directives détaillées dans les Règles de Base. Les joueurs doivent utiliser les règles pour les éléments de terrain détaillées dans les Règles de Base. Les éléments de terrain ne doivent pas être installés avec des sections infranchissables (comme les murs d'une ruine) à moins de 1\" de tout marqueur d'objectif."
+  },
+  {
+    "id": "setup-rule-determine-attacker-and-defender",
+    "body": "Les joueurs consultent la carte de Déploiement tirée pour la mission et conviennent quel bord du champ de bataille est celui de l'Attaquant et lequel est celui du Défenseur. Les joueurs font ensuite un jet et le gagnant décide qui sera l'Attaquant et qui sera le Défenseur, ce qui déterminera quel joueur utilise quelle zone de déploiement dans la bataille à venir.\n\nLes joueurs prennent leurs paquets respectifs de Mission Secondaire et de Stratagème, les mélangent et les placent à proximité pour plus tard."
+  },
+  {
+    "id": "setup-rule-select-secondary-missions",
+    "body": "Il y a deux paquets de Mission Secondaire (un pour l'Attaquant, un pour le Défenseur), ce qui signifie que les joueurs peuvent tirer les mêmes Missions Secondaires. Celles-ci décrivent des objectifs que les joueurs peuvent accomplir pour marquer des PV. Chaque carte de Mission Secondaire détaillera quand et comment elle est accomplie, ainsi que combien de PV ce joueur marque pour l'avoir accomplie.\n\nChaque joueur doit maintenant choisir s'il utilise des Missions Fixes ou Tactiques pendant la bataille. Pour ce faire, chaque joueur prend d'abord son paquet de Mission Secondaire respectif. Si un joueur souhaite utiliser des Missions Fixes, ce joueur sélectionne secrètement deux cartes de Mission Fixe (indiquées par le symbole de Mission Fixe), de son paquet de Mission Secondaire et les place face cachée sur le champ de bataille. Si un joueur souhaite utiliser des Missions Tactiques, il doit plutôt sélectionner deux cartes de Mission Secondaire de son paquet qui n'ont pas le symbole de Mission Fixe et les placer face cachée sur le champ de bataille. Une fois que les deux joueurs ont fait cela, les joueurs révèlent leurs sélections.\n\nSi un joueur sélectionne deux cartes de Mission Fixe, ces cartes de Mission Secondaire sont actives à chaque round de bataille pendant la bataille, et peuvent être accomplies et marquées à chaque round de bataille. Le reste de leur paquet de Mission Secondaire ne sera pas utilisé dans la bataille à venir et peut être mis de côté.\n\nLes cartes de Mission Fixe sélectionnées par les joueurs ne peuvent être défaussées pour aucune raison.\n\nSi un joueur n'a pas sélectionné deux cartes de Mission Fixe, alors il utilisera des Missions Tactiques dans la bataille à venir et il doit maintenant remélanger son paquet de Mission Secondaire. Au début de chaque phase de Commandement de ce joueur, ce joueur doit déterminer quelles cartes de Mission Secondaire sont actives pour lui en tirant des cartes de son paquet de Mission Secondaire ; s'il a moins de deux cartes de Mission Secondaire actives, il tire de son paquet de Mission Secondaire jusqu'à avoir deux cartes de Mission Secondaire. Ce joueur a accès au Stratagème Nouveaux Ordres (voir au verso), et peut dépenser des PC pour l'utiliser après avoir tiré ses cartes de Mission Secondaire s'il le souhaite. Si le paquet de Mission Secondaire d'un joueur s'épuise, il ne peut pas générer de Missions Secondaires supplémentaires pendant la bataille. Chaque fois que ce joueur accomplit une Mission Secondaire, après avoir marqué les PV décrits sur cette carte, cette Mission Secondaire est ensuite défaussée."
+  },
+  {
+    "id": "setup-rule-declare-battle-formations",
+    "body": "Dans l'ordre ci-dessous, les deux joueurs notent secrètement\n\n• Quelles unités de Meneur commenceront la bataille attachées (ils doivent spécifier quelle unité de Meneur est attachée à quelle unité de Garde du Corps)\n• Quelles unités commenceront la bataille embarquées dans des figurines de TRANSPORT (ils doivent spécifier quelles unités sont embarquées dans quelles figurines)\n• Quelles unités commenceront la bataille en Réserve (y compris les Réserves Stratégiques). Pas plus de la moitié du nombre d'unités dans l'armée d'un joueur ne peut commencer la bataille en Réserve, et le total de points combiné de ces unités ne peut pas être supérieur à la moitié du total de leur armée. Les unités embarquées dans un TRANSPORT qui est placé en Réserve comptent également comme étant placées en Réserve pour ces limites.\n\nQuand les deux joueurs ont fait cela, ils déclarent leurs sélections à leur adversaire.\n\nLes unités de Réserve ne peuvent pas arriver pendant le premier round de bataille et toutes les unités de Réserves Stratégiques ou de Réserve qui ne sont pas arrivées sur le champ de bataille à la fin du troisième round de bataille comptent comme ayant été détruites, ainsi que toutes les unités embarquées en elles. (ceci ne s'applique pas aux unités qui sont placées en Réserves Stratégiques après que le premier round de bataille ait commencé)"
+  },
+  {
+    "id": "setup-rule-deploy-armies",
+    "body": "Les joueurs alternent le déploiement de leurs unités restantes une à la fois, en commençant par le Défenseur. Les figurines d'un joueur doivent être déployées entièrement dans leur zone de déploiement. Si un joueur termine de déployer toutes ses unités, son adversaire déploie alors le reste de ses unités."
+  },
+  {
+    "id": "setup-rule-determine-first-turn",
+    "body": "Les joueurs font un jet et le gagnant prend le premier tour."
+  },
+  {
+    "id": "setup-rule-resolve-pre-battle-abilities",
+    "body": "Les joueurs alternent la résolution de toutes les règles pré-bataille que les unités de leur armée peuvent avoir, en commençant par le joueur qui prendra le premier tour."
+  },
+  {
+    "id": "setup-rule-begin-the-battle",
+    "body": "Le premier round de bataille commence. Les joueurs continuent à résoudre les rounds de bataille jusqu'à ce que la bataille se termine.\n\nÀ la fin du tour de chaque joueur, si ce joueur utilise des Missions Tactiques, il peut défausser une ou plusieurs de ses cartes de Mission Secondaire actives. S'il le fait, et si ce n'est pas le cinquième round de bataille, ce joueur gagne 1PC. Cela représente le haut commandement détournant des ressources stratégiques qui avaient été allouées à des objectifs désormais obsolètes pour engager de nouvelles cibles d'opportunité.\n\nÀ la fin du troisième round de bataille, les joueurs génèrent des Stratagèmes."
+  },
+  {
+    "id": "setup-rule-gambits",
+    "body": "Il y a deux paquets de Stratagème (un pour chaque joueur) avec des cartes identiques. Ceux-ci contiennent des objectifs difficiles que les joueurs peuvent tenter d'accomplir d'ici la fin de la bataille au lieu d'essayer de marquer plus de PV de leur Mission Primaire.\n\nÀ la fin du troisième round de bataille, avant de commencer le prochain round de bataille, les joueurs peuvent générer des Stratagèmes et choisir s'ils tentent d'en accomplir un.\n\nChaque joueur prend son paquet de Stratagème et retire la carte Procéder Comme Prévu, la mettant de côté, avant de mélanger les cartes de Stratagème restantes et d'en défausser une au hasard. Chaque joueur ajoute ensuite sa carte Procéder Comme Prévu, pour avoir une main contenant trois cartes.\n\nLes joueurs choisissent ensuite secrètement l'une de ces trois cartes et la placent face cachée sur le champ de bataille. Une fois que les deux joueurs ont fait cela, ils révèlent leur choix.\n\nSi un joueur révèle sa carte Procéder Comme Prévu, il ne tente pas de Stratagème dans cette bataille et continue à marquer des PV pour accomplir les objectifs tels que listés sur sa carte de Mission Primaire.\n\nSinon, le joueur tente un Stratagème, et jusqu'à la fin de la bataille, ce joueur ne peut plus marquer de PV comme décrit sur sa carte de Mission Primaire (tous les PV marqués jusqu'à présent sont conservés). Au lieu de cela, à la fin de la bataille, s'il a réussi à accomplir l'objectif décrit sur la carte de Stratagème, il marque des PV comme détaillé sur cette carte de Stratagème."
+  },
+  {
+    "id": "setup-rule-secret-missions",
+    "body": "Les Missions Secrètes sont des objectifs secrets difficiles que vous pouvez poursuivre si la Mission Primaire semble compromise.\n  \nÀ la fin du troisième round de bataille, en commençant par le joueur qui a eu le deuxième tour, si votre total de PV de Mission Primaire est inférieur ou égal à celui de votre adversaire, vous pouvez choisir d'entreprendre une Mission Secrète. Si vous le faites :\n\n■ Sélectionnez secrètement une carte de votre paquet de Mission Secrète et placez-la de côté, face cachée.\n■ Vous ne pouvez pas marquer plus de 20PV de la carte de Mission Primaire ; tout PV excédentaire attribué au-dessus de ce maximum est perdu.\n■ À la fin de la bataille, révélez votre carte de Mission Secrète à votre adversaire. Si vous avez accompli l'objectif décrit sur cette carte, vous marquez des PV comme décrit sur cette carte."
+  },
+  {
+    "id": "mission-leviathan-take-and-hold",
+    "lore": "Plusieurs emplacements stratégiques ont été identifiés dans votre voisinage. Il vous est ordonné d'assaillir ces positions, de les sécuriser et de les tenir à tout prix.",
+    "body": "Aux deuxième, troisième et quatrième rounds de bataille :\n  \nÀ la fin de chaque phase de Commandement, le joueur dont c'est le tour marque 5PV pour chaque marqueur d'objectif qu'il contrôle [jusqu'à 15PV par tour].\n\nAu cinquième round de bataille :\n\nLe joueur qui a le premier tour marque des PV comme décrit ci-dessus. Le joueur qui a le deuxième tour marque des PV comme décrit ci-dessus, mais le fait à la fin de son tour au lieu de la fin de sa phase de Commandement."
+  },
+  {
+    "id": "mission-leviathan-scorched-earth",
+    "lore": "Ce qui ne peut être sécurisé doit être réduit en cendres.",
+    "body": "À partir du deuxième round de bataille, dans chaque phase de Tir du joueur, le joueur dont c'est le tour peut sélectionner une unité de son armée qui n'est pas en état de Choc et est éligible pour tirer. Jusqu'à la fin de ce tour, cette unité n'est pas éligible pour tirer ou déclarer une charge. Au début de la prochaine phase de Commandement de son joueur contrôlant, si cette unité est à 1\" d'un marqueur d'objectif que le joueur dont c'est le tour contrôle, ce marqueur d'objectif est brûlé et retiré du champ de bataille.\n\nAux deuxième, troisième et quatrième rounds de bataille :\n\nÀ la fin de chaque phase de Commandement, le joueur dont c'est le tour marque 5PV pour chaque marqueur d'objectif qu'il contrôle (jusqu'à 10PV par tour).\n\nAu cinquième round de bataille :\n\n• Le joueur qui a le premier tour marque des PV comme décrit ci-dessus\n• Le joueur qui a le deuxième tour marque des PV comme décrit ci-dessus, mais le fait à la fin de son tour au lieu de la fin de sa phase de Commandement.\n\nÀ la fin de la bataille :\n\nChaque joueur marque 5PV si un ou plusieurs marqueurs d'objectif dans le No Man's Land ont été brûlés par une unité de son armée, et 10PV si le marqueur d'objectif dans la zone de déploiement de son adversaire a été brûlé."
+  },
+  {
+    "id": "mission-leviathan-purge-the-foe",
+    "lore": "Exterminez l'ennemi. Ne montrez aucune pitié.",
+    "body": "Aux deuxième, troisième et quatrième rounds de bataille :\n    \nÀ la fin de chaque phase de Commandement, le joueur dont c'est le tour marque 4PV s'il contrôle un ou plusieurs marqueurs d'objectif, et 4PV supplémentaires s'il contrôle plus de marqueurs d'objectif que son adversaire.\n\nAu cinquième round de bataille :\n\n• Le joueur qui a le premier tour marque des PV comme décrit ci-dessus\n• Le joueur qui a le second tour marque des PV comme décrit ci-dessus, mais le fait à la fin de son tour au lieu de la fin de sa phase de Commandement.\n\nÀ la fin de chaque round de bataille :\n\nÀ la fin du round de bataille, chaque joueur marque 4PV si une ou plusieurs unités ennemies ont été détruites durant ce round de bataille, et 4PV supplémentaires si plus d'unités ennemies que d'unités alliées ont été détruites durant ce round de bataille.\n\nNotez qu'une unité peut, si elle est remise sur le champ de bataille pour une raison quelconque, potentiellement contribuer à cette Mission Primaire plusieurs fois (si elle est remise en jeu puis détruite plusieurs fois de suite)."
+  },
+  {
+    "id": "mission-leviathan-sites-of-power",
+    "lore": "Il y a un grand pouvoir pour ceux assez audacieux pour le réclamer.",
+    "body": "Les marqueurs d'objectif dans le No Man's Land sont des sites de pouvoir. À la fin de chaque phase de Commandement, le joueur dont c'est le tour active tous les sites de pouvoir qu'il contrôle et qui ont une ou plusieurs figurines PERSONNAGE de son armée à portée ; chaque site de pouvoir reste activé par ce joueur tant qu'une ou plusieurs de ses figurines PERSONNAGE restent à portée.\n    \nAux deuxième, troisième et quatrième rounds de bataille :\n    \nÀ la fin de la phase de Commandement de chaque joueur, le joueur dont c'est le tour marque des PV comme suit (jusqu'à 15PV par tour) :\n\n• 3PV pour chaque marqueur d'objectif qu'il contrôle.\n• 3PV pour chaque site de pouvoir qu'il a activé.\nNotez que ces points sont cumulatifs, donc un joueur qui contrôle un marqueur d'objectif qu'il a également activé marquera 6PV ce tour.\n\nAu cinquième round de bataille :\n\n• Le joueur qui a le premier tour marque des PV comme décrit ci-dessus.\n• Le joueur qui a le second tour marque des PV comme décrit ci-dessus, mais le fait à la fin de son tour au lieu de la fin de sa phase de Commandement."
+  },
+  {
+    "id": "mission-leviathan-the-ritual",
+    "lore": "Des ennemis acharnés s'affrontent dans une course pour terminer un rituel visant à sanctifier ou corrompre le champ de bataille.",
+    "body": "Lors de la mise en place du champ de bataille, retirez tous les marqueurs d'objectif du No Man's Land sauf celui le plus proche du centre du champ de bataille.\n    \nDans la phase de Tir de chaque joueur, le joueur dont c'est le tour peut sélectionner une unité de son armée qui n'est pas en État de choc et qui est éligible pour tirer. Jusqu'à la fin de ce tour, cette unité n'est pas éligible pour tirer ou déclarer une charge. À la fin de ce tour, le joueur dont c'est le tour peut placer un marqueur d'objectif entièrement dans le No Man's Land et à 1\" de cette unité, à condition qu'il puisse être placé exactement à 9\" d'un autre marqueur d'objectif et pas à moins de 6\" de tout autre marqueur d'objectif.\n\nAux deuxième, troisième et quatrième rounds de bataille :\n\nÀ la fin de chaque phase de Commandement, le joueur dont c'est le tour marque 5PV pour chaque marqueur d'objectif dans le No Man's Land qu'il contrôle (jusqu'à 15PV par tour).\n\nAu cinquième round de bataille :\n\n• Le joueur qui a le premier tour marque des PV comme décrit ci-dessus.\n• Le joueur qui a le second tour marque des PV comme décrit ci-dessus, mais le fait à la fin de son tour au lieu de la fin de sa phase de Commandement."
+  },
+  {
+    "id": "mission-leviathan-priority-targets",
+    "lore": "Les objectifs dans cette zone sont vitaux pour notre effort de guerre et les sécuriser est votre plus haute priorité. N'épargnez rien pour vous assurer qu'ils ne tombent pas aux mains de l'ennemi.",
+    "body": "Aux deuxième, troisième, quatrième et cinquième rounds de bataille :\n    \nÀ la fin de chaque phase de Commandement, le joueur dont c'est le tour marque 5PV pour chaque marqueur d'objectif qu'il contrôle (jusqu'à 10PV par tour).\n\nÀ la fin de la bataille :\n\nChaque joueur marque 5PV pour chaque marqueur d'objectif qu'il contrôle (jusqu'à 15PV par joueur)."
+  },
+  {
+    "id": "mission-leviathan-supply-drop",
+    "lore": "Des ravitaillements sont en approche. Sécurisez les coordonnées de largage.",
+    "body": "Au début de la bataille, les joueurs sélectionnent aléatoirement deux marqueurs d'objectif différents dans le No Man's Land : le premier sélectionné est l'objectif Alpha, le second sélectionné est l'objectif Omega. Au début du quatrième round de bataille, l'objectif Alpha est retiré du champ de bataille. Au début du cinquième round de bataille, tous les marqueurs d'objectif dans le No Man's Land sauf l'objectif Omega sont également retirés.\n    \nAux deuxième et troisième rounds de bataille :\n\nÀ la fin de chaque phase de Commandement, le joueur dont c'est le tour marque 5PV pour chaque marqueur d'objectif qu'il contrôle dans le No Man's Land.\n\nAu quatrième round de bataille :\n\nÀ la fin de chaque phase de Commandement, le joueur dont c'est le tour marque 8PV pour chaque marqueur d'objectif qu'il contrôle dans le No Man's Land.\n\nÀ la fin de la bataille :\n\n• Le joueur qui a le premier tour marque 15PV à la fin de sa phase de Commandement s'il contrôle le marqueur d'objectif dans le No Man's Land.\n• Le joueur qui a le second tour marque 15PV à la fin de son tour s'il contrôle le marqueur d'objectif dans le No Man's Land."
+  },
+  {
+    "id": "mission-leviathan-deploy-servo-skulls",
+    "lore": "Cette zone est jonchée de reliques précieuses. Sécurisez ces artefacts derrière nos lignes de front.",
+    "body": "Les marqueurs d'objectif qui commencent la bataille dans le No Man's Land sont des servo-crânes. À la fin de chaque tour, chacun de ces marqueurs d'objectif peut être déplacé jusqu'à 6\" dans n'importe quelle direction par le joueur qui le contrôle. Lors du déplacement des marqueurs d'objectif, ils ne peuvent pas terminer ce mouvement sur un autre marqueur d'objectif ou une figurine, ou à l'intérieur de parties infranchissables d'éléments de terrain (comme les murs d'une ruine).\n\nAux deuxième, troisième, quatrième et cinquième rounds de bataille :\n    \nÀ la fin de chaque tour, le joueur dont c'est le tour marque des PV comme suit :\n• 2PV pour chaque servo-crâne qui est entièrement à 12\" ou moins de la zone de déploiement de son adversaire.\n• 5PV pour chaque servo-crâne qui est entièrement à 6\" ou moins de la zone de déploiement de son adversaire.\n• 8PV pour chaque servo-crâne qui est entièrement dans la zone de déploiement de son adversaire.\n\nNotez que ces conditions ne sont pas cumulatives ; si plusieurs s'appliquent, le joueur dont c'est le tour marque la condition applicable qui rapporte le plus de PV."
+  },
+  {
+    "id": "mission-leviathan-vital-ground",
+    "lore": "Le terrain le plus vital de la région est aux mains de l'ennemi.",
+    "body": "Si vous piochez cette carte et la carte de Règle de Mission Ravitaillements Cachés, défaussez cette carte et piochez une nouvelle carte de Mission Primaire.\n\nAprès avoir mis en place le champ de bataille, retirez le marqueur d'objectif dans le No Man's Land qui est le plus proche du centre du champ de bataille.\n\nAux deuxième, troisième et quatrième rounds de bataille :\n\nÀ la fin de chaque phase de Commandement, le joueur dont c'est le tour marque des PV comme suit :\n• S'il contrôle le marqueur d'objectif dans sa propre zone de déploiement, il marque 2PV\n• Pour chaque marqueur d'objectif dans le No Man's Land qu'il contrôle, il marque 5PV.\n• S'il contrôle le marqueur d'objectif dans la zone de déploiement de son adversaire, il marque 6PV.\n\nAu cinquième round de bataille :\n\n• Le joueur qui a le premier tour marque des PV comme décrit ci-dessus.\n• Le joueur qui a le second tour marque des PV comme décrit ci-dessus, mais le fait à la fin de son tour au lieu de la fin de sa phase de Commandement."
+  },
+  {
+    "id": "mission-pariah-nexus-take-and-hold",
+    "lore": "Plusieurs emplacements stratégiques ont été identifiés dans votre voisinage. Vous avez ordre d'assaillir ces positions, de les sécuriser et de les tenir à tout prix.",
+    "body": "À PARTIR DU DEUXIÈME ROUND DE BATAILLE\n  \nQUAND : Fin de la phase de Commandement (ou à la fin de votre tour si c'est le cinquième round de bataille et que vous jouez en second).\n\nLe joueur dont c'est le tour marque 5PV pour chaque marqueur d'objectif qu'il contrôle (jusqu'à 15PV par tour)."
+  },
+  {
+    "id": "mission-pariah-nexus-scorched-earth",
+    "lore": "Ce qui ne peut être sécurisé doit être réduit en cendres.",
+    "body": "BRÛLER L'OBJECTIF (ACTION)\nDÉBUT : Votre phase de Tir, à partir du deuxième round de bataille.\nUNITÉS : Une unité de votre armée à portée d'un marqueur d'objectif qui n'est pas dans votre zone de déploiement.\nFIN : Fin du prochain tour de votre adversaire ou fin de la bataille (selon ce qui arrive en premier), si votre unité est toujours à portée du même marqueur d'objectif et que vous contrôlez ce marqueur d'objectif.\nSI COMPLÉTÉE : Ce marqueur d'objectif est brûlé et retiré du champ de bataille.\n\nÀ PARTIR DU DEUXIÈME ROUND DE BATAILLE\n\nQUAND : N'importe quand.\nChaque fois qu'un joueur brûle un marqueur d'objectif, ce joueur marque 5PV si ce marqueur d'objectif était dans le No Man's Land, ou 10PV à la place si ce marqueur d'objectif était dans la zone de déploiement de son adversaire.\n\nÀ PARTIR DU DEUXIÈME ROUND DE BATAILLE\nQUAND : Fin de la phase de Commandement (ou à la fin de votre tour si c'est le cinquième round de bataille et que vous jouez en second).\nLe joueur dont c'est le tour marque 5PV pour chaque marqueur d'objectif qu'il contrôle (jusqu'à 10PV par tour)."
+  },
+  {
+    "id": "mission-pariah-nexus-purge-the-foe",
+    "lore": "Exterminez l'ennemi. Ne leur montrez aucune pitié.",
+    "body": "N'IMPORTE QUEL ROUND DE BATAILLE\nQUAND : Fin du round de bataille.\nChaque joueur marque 4PV si une ou plusieurs unités ennemies ont été détruites durant ce round de bataille.\n\nÀ PARTIR DU DEUXIÈME ROUND DE BATAILLE\nQUAND : Fin du round de bataille.\nChaque joueur marque 4PV si plus d'unités ennemies que d'unités alliées ont été détruites durant ce round de bataille.\n\nÀ PARTIR DU DEUXIÈME ROUND DE BATAILLE\nQUAND : Fin de la phase de Commandement (ou à la fin de votre tour si c'est le cinquième round de bataille et que vous jouez en second).\nLe joueur dont c'est le tour marque 4PV s'il contrôle un ou plusieurs marqueurs d'objectif, et 4PV supplémentaires s'il contrôle plus de marqueurs d'objectif que son adversaire."
+  },
+  {
+    "id": "mission-pariah-nexus-the-ritual",
+    "lore": "Des ennemis acharnés s'affrontent dans une course pour terminer un rituel visant à sanctifier ou corrompre le champ de bataille.",
+    "body": "Lors de la mise en place du champ de bataille, retirez tous les marqueurs d'objectif dans le No Man's Land sauf celui le plus proche du centre du champ de bataille.\n\nLE RITUEL (ACTION)\nDÉBUT : Votre phase de Tir.\nUNITÉS : Une unité de votre armée.\nFIN : Fin de votre tour.\nSI COMPLÉTÉE : Placez un marqueur d'objectif n'importe où sur le champ de bataille entièrement dans le No Man's Land et à 1\" de votre unité, à condition qu'il puisse être placé exactement à 12\" d'un autre marqueur d'objectif dans le No Man's Land et pas à moins de 6\" de tout autre marqueur d'objectif.\n\nÀ PARTIR DU DEUXIÈME ROUND DE BATAILLE\nQUAND : Fin de la phase de Commandement (ou à la fin de votre tour si c'est le cinquième round de bataille et que vous jouez en second).\nLe joueur dont c'est le tour marque 5PV pour chaque marqueur d'objectif dans le No Man's Land qu'il contrôle (jusqu'à 15PV par tour)."
+  },
+  {
+    "id": "mission-pariah-nexus-supply-drop",
+    "lore": "Des ravitaillements sont en approche. Sécurisez les coordonnées de largage.",
+    "body": "Début de la Bataille : Les joueurs sélectionnent aléatoirement deux marqueurs d'objectif différents dans le No Man's Land ; le premier sélectionné est l'objectif Alpha, le second sélectionné est l'objectif Omega.\n\nDébut du Quatrième Round de Bataille : L'objectif Alpha est retiré du champ de bataille.\n\nDébut du Cinquième Round de Bataille : Tous les marqueurs d'objectif dans le No Man's Land sauf l'objectif Omega sont retirés du champ de bataille.\n\nÀ PARTIR DU DEUXIÈME ROUND DE BATAILLE\nQUAND : Fin de la phase de Commandement (ou à la fin de votre tour si c'est le cinquième round de bataille et que vous jouez en second).\nLe joueur dont c'est le tour marque les PV suivants pour chaque marqueur d'objectif dans le No Man's Land qu'il contrôle, selon le round de bataille actuel :\n5PV aux deuxième et troisième rounds de bataille.\n8PV au quatrième round de bataille.\n15PV au cinquième round de bataille."
+  },
+  {
+    "id": "mission-pariah-nexus-burden-of-trust",
+    "lore": "Les objectifs stratégiques de cette région doivent être gardés à tout prix - un devoir qui incombe à quelques élus.",
+    "body": "À PARTIR DU DEUXIÈME ROUND DE BATAILLE\nQUAND : Fin de la phase de Commandement (ou à la fin de votre tour si c'est le cinquième round de bataille et que vous jouez en second).\nLe joueur dont c'est le tour marque 4PV pour chaque marqueur d'objectif qu'il contrôle qui n'est pas dans sa zone de déploiement. Ensuite, pour chaque marqueur d'objectif que ce joueur contrôle, il peut sélectionner une unité de son armée (sauf AÉRONEF) à portée de ce marqueur d'objectif pour le garder jusqu'au début de son prochain tour.\n\nÀ PARTIR DU DEUXIÈME ROUND DE BATAILLE\nQUAND : Fin du tour de chaque joueur.\nL'adversaire du joueur dont c'est le tour marque 2PV pour chacune de ses unités (sauf les unités en État de choc) qui sont à portée et gardent un marqueur d'objectif qu'elles contrôlent."
+  },
+  {
+    "id": "mission-pariah-nexus-terraform",
+    "lore": "La victoire ici réside dans la domination non seulement de l'ennemi, mais aussi du paysage du champ de bataille lui-même.",
+    "body": "TERRAFORMER (ACTION)\nDÉBUT : Votre phase de Tir.\nUNITÉS : Une ou plusieurs unités de votre armée, chacune à portée d'un marqueur d'objectif différent qui n'est pas dans votre zone de déploiement et n'a pas été terraformé.\nFIN : Fin du prochain tour de votre adversaire ou fin de la bataille (selon ce qui arrive en premier), si l'unité effectuant cette Action est toujours à portée du même marqueur d'objectif et que vous contrôlez ce marqueur d'objectif.\nSI COMPLÉTÉE : Chacun de ces marqueurs d'objectif est terraformé.\n\nÀ PARTIR DU DEUXIÈME ROUND DE BATAILLE\nQUAND : Fin de la phase de Commandement (ou à la fin de votre tour si c'est le cinquième round de bataille et que vous jouez en second).\nLe joueur dont c'est le tour marque des PV comme suit (jusqu'à 15PV par tour) :\n• 4PV pour chaque marqueur d'objectif qu'il contrôle.\n• 2PV pour chaque marqueur d'objectif qu'il a terraformé durant la bataille.\n\nNote : Les PV ci-dessus sont cumulatifs, donc un joueur qui contrôle un marqueur d'objectif qu'il a également terraformé marquera 6PV ce tour."
+  },
+  {
+    "id": "mission-pariah-nexus-unexploded-ordinance",
+    "lore": "Des matériaux volatils non explosés se trouvent sur votre chemin. Déplacer ces dangers vers le territoire ennemi pourrait être la clé de la victoire.",
+    "body": "Les marqueurs d'objectif qui commencent la bataille dans le No Man's Land sont des marqueurs d'objectif Danger.\n\nDÉPLACER DANGER (ACTION)\nDÉBUT : Votre phase de Tir.\nUNITÉS : Une ou plusieurs unités de votre armée, chacune à portée d'un marqueur d'objectif Danger différent que vous contrôlez.\nFIN : Fin de votre tour, si l'unité effectuant cette Action est toujours à portée du même marqueur d'objectif Danger et que vous contrôlez ce marqueur d'objectif.\nSI COMPLÉTÉE : Vous pouvez déplacer chacun de ces marqueurs d'objectif Danger jusqu'à 6\". Ce faisant, ce marqueur d'objectif ne peut pas terminer ce mouvement sur un autre marqueur d'objectif ou figurine, ou à l'intérieur de parties infranchissables d'éléments de terrain.\n\nÀ PARTIR DU DEUXIÈME ROUND DE BATAILLE\nQUAND : Fin du tour de chaque joueur.\nLe joueur dont c'est le tour marque des PV comme suit :\n• 8PV pour chaque marqueur d'objectif Danger qui est entièrement dans la zone de déploiement de son adversaire.\n• 5PV pour chaque autre marqueur d'objectif Danger qui est entièrement à 6\" ou moins de la zone de déploiement de son adversaire.\n• 2PV pour chaque autre marqueur d'objectif Danger qui est entièrement à 12\" ou moins de la zone de déploiement de son adversaire."
+  },
+  {
+    "id": "mission-pariah-nexus-linchpin",
+    "lore": "La vraie victoire repose sur des fondations solides. Si le centre ne peut tenir, alors tout s'effondre rapidement.",
+    "body": "À PARTIR DU DEUXIÈME ROUND DE BATAILLE\nQUAND : Fin de la phase de Commandement (ou la fin de votre tour si c'est le cinquième round de bataille et que vous jouez en second).\nSi le joueur dont c'est le tour ne contrôle pas le marqueur d'objectif dans sa zone de déploiement, il marque 3PV pour chaque marqueur d'objectif qu'il contrôle.\n\nOU\n\nSi le joueur dont c'est le tour contrôle le marqueur d'objectif dans sa zone de déploiement, il marque 3PV pour contrôler ce marqueur d'objectif, et 5PV pour chaque autre marqueur d'objectif qu'il contrôle (jusqu'à 15PV par tour)."
+  },
+  {
+    "id": "mission-chapter-approved-2025-26-take-and-hold",
+    "lore": "Plusieurs emplacements stratégiques ont été identifiés dans votre voisinage. Vous avez l'ordre d'assaillir ces positions, de les sécuriser et de les tenir à tout prix.",
+    "body": "À PARTIR DU DEUXIÈME ROUND DE BATAILLE\n  \nQUAND : Fin de la phase de Commandement (ou la fin de votre tour si c'est le cinquième round de bataille et que vous jouez en second).\n\nLe joueur dont c'est le tour marque 5PV pour chaque marqueur d'objectif qu'il contrôle (jusqu'à 15PV par tour)."
+  },
+  {
+    "id": "mission-chapter-approved-2025-26-scorched-earth",
+    "lore": "Ce qui ne peut être sécurisé doit être réduit en cendres.",
+    "body": "BRÛLER OBJECTIF (ACTION)\nDÉBUT : Votre phase de Tir, à partir du deuxième round de bataille.\nUNITÉS : Une unité de votre armée à portée d'un marqueur d'objectif qui n'est pas dans votre zone de déploiement.\nFIN : Fin du prochain tour de votre adversaire ou la fin de la bataille (selon ce qui arrive en premier), si votre unité est toujours à portée du même marqueur d'objectif et que vous contrôlez ce marqueur d'objectif.\nSI COMPLÉTÉE : Ce marqueur d'objectif est brûlé et retiré du champ de bataille.\n\nÀ PARTIR DU DEUXIÈME ROUND DE BATAILLE\n\nQUAND : À tout moment.\nChaque fois qu'un joueur brûle un marqueur d'objectif, ce joueur marque 5PV si ce marqueur d'objectif était dans le No Man's Land, ou 10PV à la place si ce marqueur d'objectif était dans la zone de déploiement de son adversaire.\n\nÀ PARTIR DU DEUXIÈME ROUND DE BATAILLE\nQUAND : Fin de la phase de Commandement (ou la fin de votre tour si c'est le cinquième round de bataille et que vous jouez en second).\nLe joueur dont c'est le tour marque 5PV pour chaque marqueur d'objectif qu'il contrôle (jusqu'à 10PV par tour)."
+  },
+  {
+    "id": "mission-chapter-approved-2025-26-purge-the-foe",
+    "lore": "Exterminez l'ennemi. Ne leur montrez aucune pitié.",
+    "body": "N'IMPORTE QUEL ROUND DE BATAILLE\nQUAND : Fin du round de bataille.\nChaque joueur marque 4PV si une ou plusieurs unités ennemies ont été détruites ce round de bataille.\n\nÀ PARTIR DU DEUXIÈME ROUND DE BATAILLE\nQUAND : Fin du round de bataille.\nChaque joueur marque 4PV si plus d'unités ennemies que d'unités amies ont été détruites ce round de bataille.\n\nÀ PARTIR DU DEUXIÈME ROUND DE BATAILLE\nQUAND : Fin de la phase de Commandement (ou la fin de votre tour si c'est le cinquième round de bataille et que vous jouez en second).\nLe joueur dont c'est le tour marque 4PV s'il contrôle un ou plusieurs marqueurs d'objectif, et 4PV supplémentaires s'il contrôle plus de marqueurs d'objectif que son adversaire n'en contrôle."
+  },
+  {
+    "id": "mission-chapter-approved-2025-26-the-ritual",
+    "lore": "Des ennemis acharnés s'affrontent dans une course pour terminer un rituel visant à sanctifier ou corrompre le champ de bataille.",
+    "body": "LE RITUEL (ACTION)\nDÉBUT : Votre phase de Tir.\nUNITÉS : Une unité de votre armée.\nFIN : Fin de votre tour.\nSI COMPLÉTÉE : Placez un marqueur d'objectif n'importe où sur le champ de bataille entièrement dans le No Man's Land et à 1\" ou moins de votre unité, à condition qu'il puisse être placé exactement à 12\" d'un autre marqueur d'objectif dans le No Man's Land et pas à 6\" ou moins de tout autre marqueur d'objectif.\n\nÀ PARTIR DU DEUXIÈME ROUND DE BATAILLE\nQUAND : Fin de la phase de Commandement (ou la fin de votre tour si c'est le cinquième round de bataille et que vous jouez en second).\nLe joueur dont c'est le tour marque 5PV pour chaque marqueur d'objectif dans le No Man's Land qu'il contrôle (jusqu'à 15PV par tour)."
+  },
+  {
+    "id": "mission-chapter-approved-2025-26-supply-drop",
+    "lore": "Des ravitaillements sont en approche. Sécurisez les coordonnées de largage.",
+    "body": "Début de la Bataille : Les joueurs sélectionnent aléatoirement deux marqueurs d'objectif différents dans le No Man's Land qui ne sont pas au centre du champ de bataille ; le premier sélectionné est l'objectif Alpha, le second sélectionné est l'objectif Oméga.\n\nDébut du Quatrième Round de Bataille : L'objectif Alpha est retiré du champ de bataille.\n\nDébut du Cinquième Round de Bataille : L'objectif Oméga est retiré du champ de bataille.\n\nÀ PARTIR DU DEUXIÈME ROUND DE BATAILLE\nQUAND : Fin de la phase de Commandement (ou la fin de votre tour si c'est le cinquième round de bataille et que vous jouez en second).\nLe joueur dont c'est le tour marque les PV suivants pour chaque marqueur d'objectif dans le No Man's Land qu'il contrôle selon le round de bataille actuel :\n• 5PV aux deuxième et troisième rounds de bataille.\n• 8PV au quatrième round de bataille.\n• 15PV au cinquième round de bataille."
+  },
+  {
+    "id": "mission-chapter-approved-2025-26-burden-of-trust",
+    "lore": "Les prix stratégiques dans cette région doivent être gardés à tout prix - un devoir qui incombe à quelques élus.",
+    "body": "À la fin de la phase de Commandement, pour chaque marqueur d'objectif que le joueur dont c'est le tour contrôle, il peut sélectionner une unité de son armée (excluant les AÉRONEFS) à portée de ce marqueur d'objectif pour le garder jusqu'au début de son prochain tour.\n    \nÀ PARTIR DU DEUXIÈME ROUND DE BATAILLE\nQUAND : Fin de la phase de Commandement (ou la fin de votre tour si c'est le cinquième round de bataille et que vous jouez en second).\nLe joueur dont c'est le tour marque 4PV pour chaque marqueur d'objectif qu'il contrôle qui n'est pas dans sa zone de déploiement.\n\nÀ PARTIR DU DEUXIÈME ROUND DE BATAILLE\nQUAND : Fin du tour de chaque joueur.\nL'adversaire du joueur dont c'est le tour marque 2PV pour chacune de ses unités (excluant les unités Sous le choc) qui sont à portée d'un marqueur d'objectif qu'elles gardent et qu'elles contrôlent.\n\nNote du Concepteur : Notez que le joueur jouant en second a la première chance de marquer des PV de cette façon, car il peut garder des objectifs à son premier tour et marquer des PV au prochain tour de son adversaire."
+  },
+  {
+    "id": "mission-chapter-approved-2025-26-terraform",
+    "lore": "La victoire ici réside dans la domination non seulement de l'ennemi, mais aussi du paysage du champ de bataille lui-même.",
+    "body": "TERRAFORMER (ACTION)\nDÉBUT : Votre phase de Tir.\nUNITÉS : Une ou plusieurs unités de votre armée, chacune à portée d'un marqueur d'objectif différent qui n'est pas dans votre zone de déploiement.\nFIN : Fin du tour, si l'unité effectuant cette Action est toujours à portée du même marqueur d'objectif et que vous contrôlez ce marqueur d'objectif.\nSI COMPLÉTÉE : Chacun de ces marqueurs d'objectif est terraformé par vous. Si ce marqueur d'objectif était terraformé par votre adversaire, il ne l'est plus.\n\nÀ PARTIR DU DEUXIÈME ROUND DE BATAILLE\nQUAND : Fin de la phase de Commandement (ou la fin de votre tour si c'est le cinquième round de bataille et que vous jouez en second).\n\nLe joueur dont c'est le tour marque 4PV pour chaque marqueur d'objectif qu'il contrôle (jusqu'à 12PV par tour).\n\nÀ PARTIR DU DEUXIÈME ROUND DE BATAILLE\nQUAND : Fin du tour.\n\nChaque joueur marque 1PV pour chaque marqueur d'objectif qui est terraformé par lui."
+  },
+  {
+    "id": "mission-chapter-approved-2025-26-unexploded-ordinance",
+    "lore": "Des matériaux volatils non explosés se trouvent sur votre chemin. Déplacer ces dangers vers le territoire ennemi pourrait être la clé de la victoire.",
+    "body": "Début de la Bataille : Chaque marqueur d'objectif dans le No Man's Land devient un marqueur d'objectif Danger.\n\nDÉPLACER DANGER (ACTION)\nDÉBUT : Votre phase de Tir.\nUNITÉS : Une ou plusieurs unités de votre armée, chacune à portée d'un marqueur d'objectif Danger différent que vous contrôlez.\nFIN : Fin de votre tour, si l'unité effectuant cette Action est toujours à portée du même marqueur d'objectif Danger et que vous contrôlez ce marqueur d'objectif.\nSI COMPLÉTÉE : Vous pouvez déplacer chacun de ces marqueurs d'objectif Danger jusqu'à 6\". Ce faisant, ce marqueur d'objectif ne peut pas terminer ce mouvement sur un autre marqueur d'objectif ou figurine, ou à l'intérieur de parties infranchissables d'éléments de terrain.\n\nÀ PARTIR DU DEUXIÈME ROUND DE BATAILLE\nQUAND : Fin du tour de chaque joueur.\n\nLe joueur dont c'est le tour marque des PV comme suit :\n• BPV pour chaque marqueur d'objectif Danger qui est entièrement dans la zone de déploiement de son adversaire.\n• 5PV pour chaque autre marqueur d'objectif Danger qui est entièrement à 6\" ou moins de la zone de déploiement de son adversaire.\n• 2PV pour chaque autre marqueur d'objectif Danger qui est entièrement à 12\" ou moins de la zone de déploiement de son adversaire."
+  },
+  {
+    "id": "mission-chapter-approved-2025-26-linchpin",
+    "lore": "La vraie victoire repose sur des fondations solides. Si le centre ne peut tenir, alors tout s'effondre rapidement.",
+    "body": "À PARTIR DU DEUXIÈME ROUND DE BATAILLE\nQUAND : Fin de la phase de Commandement (ou la fin de votre tour si c'est le cinquième round de bataille et que vous jouez en second).\n\nSi le joueur dont c'est le tour ne contrôle pas le marqueur d'objectif dans sa zone de déploiement, il marque 3PV pour chaque marqueur d'objectif qu'il contrôle.\n\nOU\n\nSi le joueur dont c'est le tour contrôle le marqueur d'objectif dans sa zone de déploiement, il marque 3PV pour contrôler ce marqueur d'objectif, et 5PV pour chaque autre marqueur d'objectif qu'il contrôle (jusqu'à 15PV par tour)."
+  },
+  {
+    "id": "mission-chapter-approved-2025-26-hidden-supplies",
+    "lore": "Des unités de reconnaissance ont découvert une cache cachée de matériel dans cette zone de guerre.",
+    "body": "Dans l'étape Placer les Marqueurs d'Objectif, les joueurs doivent placer un marqueur d'objectif supplémentaire dans le No Man's Land.\n\nAvant de placer ce nouveau marqueur d'objectif, les joueurs doivent d'abord déplacer le marqueur d'objectif au centre du champ de bataille de 6\" directement vers l'un des coins du champ de bataille (si le No Man's Land touche l'un des coins du champ de bataille, vous devez déplacer le marqueur d'objectif vers l'un de ces coins). Sinon, les joueurs font un jet de dé, et le gagnant sélectionne vers quel coin le marqueur d'objectif est déplacé. Les joueurs placent ensuite le nouveau marqueur d'objectif à 6\" du centre du champ de bataille vers le coin diagonalement opposé du champ de bataille au marqueur d'objectif précédemment déplacé.\n\nÀ PARTIR DU DEUXIÈME ROUND DE BATAILLE\nQUAND : Fin de la phase de Commandement (ou la fin de votre tour si c'est le cinquième round de bataille et que vous jouez en second).\n\nLe joueur dont c'est le tour marque des PV comme suit (ceux-ci sont cumulatifs) :\n\n• SPV S'il contrôle un marqueur d'objectif qui n'est pas dans sa zone de déploiement.\n• 5PV S'il contrôle deux marqueurs d'objectif qui ne sont pas dans sa zone de déploiement.\n• SPV s'il contrôle plus de marqueurs d'objectif que son adversaire n'en contrôle."
+  },
+  {
+    "id": "mission-rule-leviathan-chilling-rain",
+    "lore": "Des vents intenses soufflent sur le champ de bataille, fouettant à travers les restes brisés de ruines bombardées et lourds de l'odeur de la mort. Une pluie glaciale trempe et refroidit les guerriers, ne faisant qu'ajouter à leur misère et à leur inconfort.",
+    "body": "Dans cette mission, aucune règle de mission supplémentaire ne s'applique."
+  },
+  {
+    "id": "mission-rule-leviathan-secret-intel",
+    "lore": "Nos espions et équipes de reconnaissance ont rapporté des renseignements secrets, nous permettant de mieux coordonner notre prochain mouvement tactique.",
+    "body": "Dans cette mission, dans la phase de Commandement de chaque joueur, la première fois que ce joueur pioche des cartes de Mission Secondaire cette phase, ce joueur peut piocher une carte de Mission Secondaire supplémentaire, puis défausser une de ses cartes de Mission Secondaire actives."
+  },
+  {
+    "id": "mission-rule-leviathan-scrambler-fields",
+    "lore": "Des champs brouilleurs et d'autres dispositifs plus ésotériques ont été activés dans cette zone, limitant l'utilisation de technologies de furtivité avancées et de téléportation.",
+    "body": "Dans cette mission :\n\n• Les unités des joueurs avec la capacité Infiltrateurs ne peuvent pas être déployées à portée d'un marqueur d'objectif qui se trouve soit dans le No Man's Land, soit dans la zone de déploiement de leur adversaire.\n• Les unités des joueurs avec la capacité Éclaireurs qui effectuent un mouvement avant le début du premier tour ne peuvent pas terminer ce mouvement à portée d'un marqueur d'objectif qui se trouve soit dans le No Man's Land, soit dans la zone de déploiement de leur adversaire.\n• Si une règle est utilisée pour redéployer une unité, cette règle ne peut pas être utilisée pour déployer cette unité à portée d'un marqueur d'objectif dans le No Man's Land.\n• Lorsque les unités de Réserves et de Réserves Stratégiques d'un joueur sont déployées sur le champ de bataille, elles ne peuvent pas être déployées à portée d'un marqueur d'objectif qui se trouve soit dans le No Man's Land, soit dans la zone de déploiement de leur adversaire."
+  },
+  {
+    "id": "mission-rule-leviathan-maelstrom-of-battle",
+    "lore": "Peu de répit ou de sanctuaire est disponible à travers les champs de bataille du 41e Millénaire.",
+    "body": "Dans cette mission, mélangez les cartes de Règle de Mission restantes ensemble avant de piocher 2 nouvelles cartes de Règle de Mission.\n\nSi l'une de ces nouvelles cartes de Règle de Mission est Pluie Glaciale, défaussez cette carte de Règle de Mission et piochez 2 nouvelles cartes de Règle de Mission supplémentaires (pour un total de 3 nouvelles cartes de Règle de Mission).\n\nAppliquez toutes les cartes de Règle de Mission piochées à la bataille."
+  },
+  {
+    "id": "mission-rule-leviathan-supply-lines",
+    "lore": "Des infiltrateurs ennemis tentent de saboter et de perturber vos lignes de ravitaillement. Maintenez la vigilance pour sécuriser les lignes de communication et sauvegarder les ressources stratégiques vitales.",
+    "body": "Dans cette mission, si un joueur contrôle le marqueur d'objectif dans sa propre zone de déploiement au début de sa phase de Commandement, il lance un D6 : sur 4+, ce joueur gagne 1PC."
+  },
+  {
+    "id": "mission-rule-leviathan-targets-of-opportunity",
+    "lore": "Cette zone de bataille regorge de cibles tactiques d'opportunité, idéales pour les seigneurs de guerre avides de gloire.",
+    "body": "Dans cette mission, si un joueur utilise des Missions Tactiques, alors chaque fois que ce joueur détermine quelles cartes de Mission Secondaire sont actives pour lui, s'il a moins de 3 cartes de Mission Secondaire actives, ce joueur pioche dans son deck de Mission Secondaire jusqu'à avoir 3 cartes de Mission Secondaire.\n\nDans cette mission, si un joueur utilise des Missions Fixes, alors en plus des 2 cartes de Mission Fixe, ce joueur piochera également des cartes de son deck de Mission Secondaire pendant la bataille. À la fin de l'étape Sélectionner les Missions Secondaires, ce joueur doit récupérer son deck de Mission Secondaire, retirer toutes les cartes de Mission Fixe qu'il n'a pas sélectionnées au début de cette étape, puis mélanger les cartes restantes. Ensuite, au début de chaque phase de Commandement de ce joueur, si ce joueur a moins de 3 cartes de Mission Secondaire actives (incluant ses cartes de Mission Fixe), il pioche dans son deck de Mission Secondaire jusqu'à avoir 3 cartes de Mission Secondaire. Ce joueur a accès au Stratagème Nouveaux Ordres, et peut dépenser des PC pour l'utiliser après avoir pioché ses cartes de Mission Secondaire s'il le souhaite (rappelez-vous que les cartes de Mission Fixe ne peuvent être défaussées pour aucune raison)."
+  },
+  {
+    "id": "mission-rule-leviathan-hidden-supplies",
+    "lore": "Des unités de reconnaissance ont découvert une cache cachée de munitions, de carburant et de rations dans cette zone de guerre.",
+    "body": "Dans cette mission, les joueurs doivent placer un marqueur d'objectif supplémentaire dans le No Man's Land.\n\nÀ moins que la règle de mission Champ de Bataille Choisi ne soit également en vigueur, avant de placer ce nouveau marqueur d'objectif, les joueurs doivent d'abord déplacer le marqueur d'objectif au centre du champ de bataille de 6\" directement vers l'un des coins du champ de bataille (si le No Man's Land touche l'un des coins du champ de bataille, vous devez déplacer le marqueur d'objectif vers l'un de ces coins). Les joueurs placent ensuite le nouveau marqueur d'objectif à 6\" du centre du champ de bataille vers le coin diagonalement opposé du champ de bataille par rapport au marqueur d'objectif précédemment déplacé."
+  },
+  {
+    "id": "mission-rule-leviathan-chosen-battlefield",
+    "lore": "Les deux camps ont exploré la zone de manière approfondie, localisant l'emplacement exact des sites vitaux.",
+    "body": "Dans cette mission, les marqueurs d'objectif ne sont pas placés comme indiqué sur la carte de Déploiement tirée. Au lieu de cela, les joueurs effectuent un jet opposé au début de l'étape Placer les Marqueurs d'Objectif, puis alternent le placement des marqueurs d'objectif, un à la fois, en commençant par le vainqueur du jet opposé.\n\nUn marqueur d'objectif doit être placé entièrement dans chaque zone de déploiement, et les marqueurs d'objectif restants doivent être placés entièrement dans le No Man's Land, comme indiqué sur la carte de Déploiement tirée. Les marqueurs d'objectif doivent être placés à plus de 6\" de tout bord du champ de bataille et à plus de 9\" de tous les autres marqueurs d'objectif.\n\nSi pour une raison quelconque il n'est pas possible de placer un marqueur d'objectif comme décrit ci-dessus, il n'est pas placé sur le champ de bataille.\n\nSi des règles exigent que les joueurs placent des marqueurs d'objectif supplémentaires (par exemple Ravitaillement Caché) pendant l'étape Placer les Marqueurs d'Objectif, les joueurs les placent comme décrit sur cette carte de Règle de Mission.\n\nSi des règles demandent aux joueurs de retirer un ou plusieurs marqueurs d'objectif, faites-le après les avoir tous placés."
+  },
+  {
+    "id": "mission-rule-leviathan-delayed-reserves",
+    "lore": "Des intercepteurs ennemis parcourent les cieux, mitraillant et bombardant toutes nos unités de renfort qu'ils découvrent. Nos forces seront inévitablement retardées alors qu'elles tentent d'esquiver ces vicieuses patrouilles aériennes.",
+    "body": "Dans cette mission, jusqu'au début du troisième round de bataille, chaque fois qu'une unité de Réserves ou de Réserves Stratégiques souhaite arriver sur le champ de bataille, le joueur qui la contrôle doit effectuer un jet de Réserves pour elle. Pour ce faire, ce joueur lance un D6 : sur 3+, cette unité arrive sur le champ de bataille ; sinon, le jet de Réserves échoue et cette unité n'arrive pas ce tour."
+  },
+  {
+    "id": "mission-rule-leviathan-vox-static",
+    "lore": "Les éruptions stellaires, le scrapcode malveillant et l'énergie électromagnétique limitent les communications.",
+    "body": "Dans cette mission, le Stratagème Relance de Commandement et le Stratagème Nouveaux Ordres coûtent tous deux 2PC à utiliser."
+  },
+  {
+    "id": "mission-rule-leviathan-sweep-and-clear",
+    "lore": "Les forces ont reçu l'ordre d'effectuer un nettoyage par le feu de ce champ de bataille, purgeant méthodiquement les sites stratégiques des ennemis un par un avant de poursuivre.",
+    "body": "Dans cette mission, si un joueur contrôle un marqueur d'objectif à la fin de sa phase de Commandement, ce marqueur d'objectif reste sous son contrôle, même s'il n'a aucune figurine à portée de celui-ci, à moins que son adversaire ne le contrôle à la fin d'une phase de Commandement ultérieure."
+  },
+  {
+    "id": "mission-rule-leviathan-minefields",
+    "lore": "Des munitions enterrées et des pièges cachés jonchent ce champ de bataille, posant une menace à toutes les unités qui avancent imprudemment et sans précaution.",
+    "body": "Dans cette mission, chaque fois qu'un jet d'Avance de 6 est obtenu pour une unité, cette unité subit 1 blessure mortelle."
+  },
+  {
+    "id": "mission-rule-pariah-nexus-smoke-and-mirrors",
+    "lore": "Que ce soit par la ruse technologique, l'illusion sorcière ou la simple astuce, les deux commandants cherchent à déjouer et surpasser l'autre en manœuvres.",
+    "body": "Après que les deux joueurs ont déployé leurs armées, en commençant par l'Attaquant, chaque joueur peut placer une unité de son armée qui est sur le champ de bataille en Réserves Stratégiques, indépendamment du nombre d'unités déjà en Réserves Stratégiques.\n\nLa valeur en points d'une telle unité ne peut pas dépasser 25% de la limite de points totale de chaque joueur pour la taille de bataille choisie, comme indiqué ci-dessous.\n\nTAILLE DE BATAILLE     VALEUR MAXIMALE EN POINTS DE L'UNITÉ\nIncursion              250 pts\nForce de Frappe        500 pts\nAssaut                 750 pts"
+  },
+  {
+    "id": "mission-rule-pariah-nexus-inspired-leadership",
+    "lore": "Peu de spectacles donnent un exemple aussi inspirant sur le champ de bataille qu'un commandant menant depuis le front, auréolé de gloire et taché de sang.",
+    "body": "Tant que le SEIGNEUR DE GUERRE d'un joueur n'est pas dans sa zone de déploiement, chaque fois qu'une unité de l'armée de ce joueur effectue un test de Choc de Bataille, si le SEIGNEUR DE GUERRE de ce joueur est à 9\" ou moins et visible de cette unité, ajoutez 1 à ce test."
+  },
+  {
+    "id": "mission-rule-pariah-nexus-swift-action",
+    "lore": "Le temps presse. Le cataclysme approche à une échelle inimaginable. Face à de telles terreurs, chaque guerrier combat avec la vitesse et la furie du désespoir.",
+    "body": "Les unités LIGNE DE BATAILLE qui Avancent ou Battent en Retraite sont toujours éligibles pour effectuer une Action ce tour-ci."
+  },
+  {
+    "id": "mission-rule-pariah-nexus-rapid-escalation",
+    "lore": "Les armées se lancent imprudemment dans ce qui devient rapidement un maelström de bataille. À chaque instant qui passe, les flammes du conflit s'embrasent davantage.",
+    "body": "Au premier round de bataille, chaque joueur peut déployer des unités LIGNE DE BATAILLE depuis les Réserves Stratégiques lors de l'étape de Renforts de sa phase de Mouvement. S'il le fait, ces unités doivent être déployées entièrement à 6\" ou moins de n'importe quel bord du champ de bataille, mais aucune figurine de ces unités ne peut être déployée dans la zone de déploiement ennemie.\n\nLe total en points des unités qu'un joueur peut déployer de cette manière ne peut pas dépasser 10% de sa limite de points totale pour la taille de bataille choisie, comme indiqué ci-dessous.\n\nTAILLE DE BATAILLE     TOTAL DE POINTS MAXIMUM DES UNITÉS DE RÉSERVES STRATÉGIQUES\nIncursion              100 pts\nForce de Frappe        200 pts\nAssaut                 300 pts"
+  },
+  {
+    "id": "mission-rule-pariah-nexus-prepared-positions",
+    "lore": "Cette bataille se prépare depuis longtemps, un combat pour lequel les deux commandants ont eu amplement le temps de préparer leurs guerriers et leurs défenses.",
+    "body": "Les joueurs peuvent cibler leurs unités LIGNE DE BATAILLE avec les Stratagèmes Se Mettre à Couvert et Intervention Héroïque pour 0PC (mais ne peuvent pas le faire s'ils ont déjà utilisé ce Stratagème sur une unité différente ce tour)."
+  },
+  {
+    "id": "mission-rule-pariah-nexus-hidden-supplies",
+    "lore": "Les unités de reconnaissance ont découvert une cache secrète de munitions, de carburant et de rations dans cette zone de guerre.",
+    "body": "Quand Tirée : Si vous avez également tiré la carte de Mission Primaire Le Rituel, défaussez cette carte de Règle de Mission et tirez une nouvelle carte de Règle de Mission.\n    \nDans l'étape Placer les Marqueurs d'Objectif, les joueurs doivent placer un marqueur d'objectif supplémentaire dans le No Man's Land.\n\nAvant de placer ce nouveau marqueur d'objectif, les joueurs doivent d'abord déplacer le marqueur d'objectif au centre du champ de bataille de 6\" directement vers l'un des coins du champ de bataille (si le No Man's Land touche l'un des coins du champ de bataille, vous devez déplacer le marqueur d'objectif vers l'un de ces coins). Sinon, les joueurs font un jet de dés, et le vainqueur choisit vers quel coin le marqueur d'objectif est déplacé. Les joueurs placent ensuite le nouveau marqueur d'objectif à 6\" du centre du champ de bataille vers le coin diagonalement opposé du champ de bataille par rapport au marqueur d'objectif précédemment déplacé."
+  },
+  {
+    "id": "mission-rule-pariah-nexus-adapt-or-die",
+    "lore": "Sur ce champ de bataille changeant, seul un commandant capable d'adapter sa stratégie rapidement et de manière décisive a une chance de saisir la victoire.",
+    "body": "POUR LES JOUEURS UTILISANT DES MISSIONS FIXES\nUne fois par bataille, à la fin du tour de ce joueur, après avoir marqué des PV, il peut défausser l'une de ses cartes de Mission Secondaire et la remplacer par une autre carte de Mission Secondaire qui a le symbole Mission Fixe.\n\nPOUR LES JOUEURS UTILISANT DES MISSIONS TACTIQUES\nDeux fois par bataille, après avoir tiré une carte de Mission Secondaire, ce joueur peut tirer une autre carte de Mission Secondaire, puis mélanger l'une de ces deux cartes de Mission Secondaire dans son deck de Mission Secondaire."
+  },
+  {
+    "id": "mission-rule-pariah-nexus-stalwarts",
+    "lore": "Ce n'est pas l'heure de la gloire dorée, mais plutôt le moment où les soldats ordinaires, couverts de boue et trempés de sang, s'avancent et prouvent leur valeur.",
+    "body": "Les unités LIGNE DE BATAILLE qui effectuent une Action sont toujours éligibles pour tirer ce tour (mais ne peuvent pas commencer à effectuer une autre Action ce tour), et les unités LIGNE DE BATAILLE peuvent effectuer des Actions alors qu'elles sont à Portée d'Engagement d'une ou plusieurs unités ennemies."
+  },
+  {
+    "id": "mission-rule-pariah-nexus-raise-banners",
+    "lore": "Il ne suffit pas aujourd'hui de simplement vaincre l'ennemi. Au lieu de cela, vous devez hisser haut vos bannières, annonçant vos conquêtes à tous ceux qui en sont témoins.",
+    "body": "À la fin du tour de chaque joueur, si une unité LIGNE DE BATAILLE de son armée est à portée d'un marqueur d'objectif que ce joueur contrôle, cette unité lève une bannière sur ce marqueur d'objectif : ce joueur marque 1PV (qui est compté dans son score de Mission Secondaire), et les unités de ce joueur ne peuvent plus lever de bannière sur ce marqueur d'objectif."
+  },
+  {
+    "id": "mission-rule-pariah-nexus-fog-of-war",
+    "lore": "En raison de conditions atmosphériques étranges ou de phénomènes surnaturels, la confusion règne. Les positions ennemies sont inconnues, et vous n'osez pas engager vos ressources aveuglément.",
+    "body": "Au premier round de bataille, les unités bénéficient du Couvert, et les joueurs ne peuvent pas utiliser les Stratagèmes de Base (à l'exception du Stratagème Nouveaux Ordres)."
+  },
+  {
+    "id": "mission-rule-chapter-approved-2025-26-no-twist",
+    "lore": "",
+    "body": "Aucune complication n'a été sélectionnée."
+  },
+  {
+    "id": "mission-rule-chapter-approved-2025-26-night-fighting",
+    "lore": "",
+    "body": "Chaque unité ne peut être la cible d'une attaque à distance que si la figurine attaquante est à 18\" ou moins."
+  },
+  {
+    "id": "mission-rule-chapter-approved-2025-26-ruinscape",
+    "lore": "",
+    "body": "Chaque fois qu'une unité effectue un mouvement Normal ou d'Avance, elle peut se déplacer horizontalement à travers les éléments de terrain."
+  },
+  {
+    "id": "mission-rule-chapter-approved-2025-26-martial-pride",
+    "lore": "",
+    "body": "Avancer ne rend pas une unité LIGNE DE BATAILLE inéligible pour commencer une Action (à l'exclusion des unités VÉHICULE).\n\nCommencer une Action ne rend pas une unité LIGNE DE BATAILLE inéligible pour tirer (à l'exclusion des unités VÉHICULE)."
+  },
+  {
+    "id": "mission-rule-chapter-approved-2025-26-rapid-escalation",
+    "lore": "",
+    "body": "Au premier round de bataille, les joueurs peuvent déployer des unités depuis les Réserves Stratégiques lors de l'étape de Renforts de leur phase de Mouvement. S'ils le font, ces unités doivent être déployées entièrement à 6\" ou moins de n'importe quel bord du champ de bataille, mais aucune figurine de ces unités ne peut être déployée dans la zone de déploiement ennemie. Une unité déployée de cette manière ne peut pas être déployée en utilisant la capacité Frappe en Profondeur.\n\nLe total de points maximum des unités déployées de cette manière est le suivant :\n\nTAILLE DE BATAILLE     TOTAL DE POINTS MAXIMUM\nIncursion              200pts\nForce de Frappe        400pts\nGuerre Asymétrique     400pts"
+  },
+  {
+    "id": "mission-rule-chapter-approved-2025-26-adapt-or-die",
+    "lore": "",
+    "body": "POUR LES JOUEURS UTILISANT DES MISSIONS FIXES\nUne fois par bataille, à la fin du tour de ce joueur, après avoir marqué des PV, il peut défausser l'une de ses cartes de Mission Secondaire et la remplacer par une autre carte de Mission Secondaire qui a le symbole Mission Fixe.\n\nPOUR LES JOUEURS UTILISANT DES MISSIONS TACTIQUES\nDeux fois par bataille, après avoir tiré une carte de Mission Secondaire, ce joueur peut tirer une autre carte de Mission Secondaire, puis mélanger l'une de ces deux cartes de Mission Secondaire dans son deck de Mission Secondaire."
+  },
+  {
+    "id": "mission-rule-chapter-approved-2025-26-high-octane",
+    "lore": "",
+    "body": "Chaque fois qu'une unité Avance, ne faites pas de jet d'Avance. À la place, jusqu'à la fin de la phase, ajoutez 6\" à la caractéristique de Mouvement des figurines de cette unité."
+  },
+  {
+    "id": "mission-rule-chapter-approved-2025-26-bloodlust",
+    "lore": "",
+    "body": "Une unité est éligible pour charger si elle se trouve à 18\" ou moins d'une ou plusieurs unités ennemies, au lieu de 12\".\n    \nChaque fois que vous effectuez un jet de Charge, lancez 3D6."
+  },
+  {
+    "id": "mission-rule-chapter-approved-2025-26-point-blank",
+    "lore": "",
+    "body": "Les armes à distance (sauf les armes Blast) ont la capacité PISTOLET."
+  },
+  {
+    "id": "mission-rule-chapter-approved-2025-26-lords-of-war",
+    "lore": "",
+    "body": "Jusqu'à la fin de la bataille, ajoutez 3 à la caractéristique d'Attaques de chaque arme équipée par les figurines SEIGNEUR DE GUERRE (à l'exclusion des VÉHICULES)."
+  },
+  {
+    "id": "secondary-mission-a-tempting-target",
+    "lore": "Une opportunité de s'emparer d'un atout précieux a été identifiée, mais l'ennemi risque de l'utiliser comme appât dans un piège. Déplacez-vous pour sécuriser le site, mais méfiez-vous des embuscades ennemies.",
+    "body": "Lorsque cette carte de Mission Secondaire est tirée, votre adversaire doit sélectionner un marqueur d'objectif dans le No Man's Land.\n\nÀ la fin de votre tour, si vous contrôlez ce marqueur d'objectif sélectionné, cette Mission Secondaire est accomplie et vous marquez 5PV."
+  },
+  {
+    "id": "secondary-mission-chapter-approved-2025-26-a-tempting-target",
+    "lore": "Une opportunité de s'emparer d'un atout précieux a été identifiée, mais l'ennemi risque de l'utiliser comme appât dans un piège. Déplacez-vous pour sécuriser le site, mais méfiez-vous des embuscades ennemies.",
+    "body": "Lorsque Tirée : Votre adversaire doit sélectionner un marqueur d'objectif dans le No Man's Land pour être votre marqueur d'objectif Cible Tentante.\n\nN'IMPORTE QUEL ROUND DE BATAILLE\nQUAND : Fin du tour de n'importe quel joueur.\nVous contrôlez votre marqueur d'objectif Cible Tentante. 5PV"
+  },
+  {
+    "id": "secondary-mission-area-denial",
+    "lore": "Il est crucial que cette zone soit dominée. Aucune unité d'avant-garde ou de guérilla ennemie ne peut être autorisée à perturber nos plans.",
+    "body": "À la fin de votre tour, si une ou plusieurs unités de votre armée (à l'exclusion des unités en état de choc) sont entièrement à 6\" ou moins du centre du champ de bataille, et qu'il n'y a aucune unité ennemie entièrement à 6\" ou moins du centre du champ de bataille, cette Mission Secondaire est accomplie et vous marquez 5PV.\n\nSi, à la fin de votre tour, il y a une ou plusieurs unités ennemies entièrement à 6\" ou moins du centre du champ de bataille, mais qu'il n'y a aucune unité ennemie à 3\" ou moins du centre du champ de bataille, alors cette Mission Secondaire est toujours accomplie, mais dans ce cas vous marquez 3PV au lieu de 5PV."
+  },
+  {
+    "id": "secondary-mission-pariah-nexus-area-denial",
+    "lore": "Il est crucial que cette zone soit dominée. Aucune unité d'avant-garde ou de guérilla ennemie ne peut être autorisée à perturber nos plans.",
+    "body": "N'IMPORTE QUEL ROUND DE BATAILLE\nQUAND : Fin de votre tour.\nUne ou plusieurs unités de votre armée (à l'exclusion des AÉRONEFS et des unités en état de choc) sont à 3\" ou moins du centre du champ de bataille, et il n'y a aucune unité ennemie à 3\" ou moins du centre du champ de bataille. 2PV\nOU\nUne ou plusieurs unités de votre armée (à l'exclusion des AÉRONEFS et des unités en état de choc) sont à 3\" ou moins du centre du champ de bataille, et il n'y a aucune unité ennemie à 6\" ou moins du centre du champ de bataille. 5PV"
+  },
+  {
+    "id": "secondary-mission-chapter-approved-2025-26-area-denial",
+    "lore": "Il est crucial que cette zone soit dominée. Aucune unité d'avant-garde ou de guérilla ennemie ne peut être autorisée à perturber nos plans.",
+    "body": "N'IMPORTE QUEL ROUND DE BATAILLE\nQUAND : Fin de votre tour.\nUne ou plusieurs unités de votre armée (à l'exclusion des AÉRONEFS et des unités en état de choc) sont à 3\" ou moins du centre du champ de bataille, et il n'y a aucune unité ennemie à 3\" ou moins du centre du champ de bataille. 2PV\nOU\nUne ou plusieurs unités de votre armée (à l'exclusion des AÉRONEFS et des unités en état de choc) sont à 3\" ou moins du centre du champ de bataille, et il n'y a aucune unité ennemie à 6\" ou moins du centre du champ de bataille. 5PV"
+  },
+  {
+    "id": "secondary-mission-assassination",
+    "lore": "L'ennemi cherche le courage auprès de ses champions. Identifiez-les et éliminez-les avec une extrême préjudice.",
+    "body": "Si vous utilisez des Missions Fixes, alors tant que cette Mission Secondaire est active, chaque fois qu'une figurine PERSONNAGE ennemie est détruite, vous marquez 4PV.\n\nSi vous utilisez des Missions Tactiques, alors à la fin du tour, si l'une des conditions ci-dessous est satisfaite, cette Mission Secondaire est accomplie et vous marquez 5PV :\n• Une ou plusieurs unités PERSONNAGE ennemies ont été détruites pendant ce tour.\n• Toutes les unités PERSONNAGE de la Liste d'Armée de votre adversaire ont été détruites pendant la bataille.\n\nNotez que si vous utilisez des Missions Tactiques, cette Mission Secondaire est accomplie même si une telle unité a été détruite puis ressuscitée pour une raison quelconque."
+  },
+  {
+    "id": "secondary-mission-pariah-nexus-assassination",
+    "lore": "L'ennemi cherche le courage auprès de ses champions. Identifiez-les et éliminez-les avec une extrême préjudice.",
+    "body": "N'IMPORTE QUEL ROUND DE BATAILLE\nQUAND : Tant que cette carte est active (si vous utilisez des Missions Fixes).\nChaque fois qu'une figurine PERSONNAGE ennemie est détruite. 4PV\n\nN'IMPORTE QUEL ROUND DE BATAILLE\nQUAND : Fin du tour de n'importe quel joueur (si vous utilisez des Missions Tactiques).\nUne ou plusieurs figurines PERSONNAGE ennemies ont été détruites ce tour. 5PV\nOU\nToutes les figurines PERSONNAGE de l'armée de votre adversaire ont été détruites pendant la bataille. 5PV"
+  },
+  {
+    "id": "secondary-mission-chapter-approved-2025-26-assassination",
+    "lore": "L'ennemi cherche le courage auprès de ses champions. Identifiez-les et éliminez-les avec une extrême préjudice.",
+    "body": "N'IMPORTE QUEL ROUND DE BATAILLE\nQUAND : Tant que cette carte est active (si vous utilisez des Missions Fixes).\nChaque fois qu'une figurine PERSONNAGE ennemie avec une caractéristique de Points de Vie de 4 ou plus est détruite. FIXE 4PV\nChaque fois qu'une figurine PERSONNAGE ennemie avec une caractéristique de Points de Vie de moins de 4 est détruite. FIXE 3PV\n\nN'IMPORTE QUEL ROUND DE BATAILLE\nQUAND : Fin du tour de n'importe quel joueur (si vous utilisez des Missions Tactiques).\nUne ou plusieurs figurines PERSONNAGE ennemies ont été détruites ce tour. TACTIQUE 5PV\nOU\nToutes les figurines PERSONNAGE ennemies ont été détruites pendant la bataille. TACTIQUE 5PV"
+  },
+  {
+    "id": "secondary-mission-behind-enemy-lines",
+    "lore": "Percez l'armée ennemie et coupez leurs lignes de fuite.",
+    "body": "À la fin de votre tour, si deux unités ou plus de votre armée (à l'exclusion des Aéronefs) sont entièrement dans la zone de déploiement de votre adversaire, cette Mission Secondaire est accomplie et vous marquez 4PV (ou 5PV si vous utilisez des Missions Tactiques).\n\nSi, à la fin de votre tour, une seule unité de votre armée (à l'exclusion des Aéronefs) est entièrement dans la zone de déploiement de votre adversaire, alors cette Mission Secondaire est toujours accomplie, mais dans ce cas vous marquez 3PV au lieu de 4PV (ou au lieu de 5PV)."
+  },
+  {
+    "id": "secondary-mission-pariah-nexus-behind-enemy-lines",
+    "lore": "Percez l'armée ennemie et coupez leurs lignes de fuite.",
+    "body": "Quand tirée : Si c'est le premier round de bataille, vous pouvez tirer une nouvelle carte Mission Secondaire et mélanger cette carte dans votre deck de Missions Secondaires.\n    \nN'IMPORTE QUEL ROUND DE BATAILLE\nQUAND : Fin de votre tour.\nUne unité de votre armée (excluant AÉRONEF et unités en état de choc) est entièrement dans la zone de déploiement de votre adversaire. 3PV\nOU\nDeux unités ou plus de votre armée (excluant AÉRONEF et unités en état de choc) sont entièrement dans la zone de déploiement de votre adversaire. 4PV"
+  },
+  {
+    "id": "secondary-mission-chapter-approved-2025-26-behind-enemy-lines",
+    "lore": "Percez l'armée ennemie et coupez leurs lignes de fuite.",
+    "body": "Quand tirée : Si c'est le premier round de bataille, vous pouvez tirer une nouvelle carte Mission Secondaire et mélanger cette carte dans votre deck de Missions Secondaires.\n    \nN'IMPORTE QUEL ROUND DE BATAILLE\nQUAND : Fin de votre tour.\nUne unité de votre armée (excluant AÉRONEF et unités en état de choc) est entièrement dans la zone de déploiement de votre adversaire. 3PV\nOU\nDeux unités ou plus de votre armée (excluant AÉRONEF et unités en état de choc) sont entièrement dans la zone de déploiement de votre adversaire. 4PV"
+  },
+  {
+    "id": "secondary-mission-bring-it-down",
+    "lore": "L'armée adverse contient de nombreuses unités lourdement blindées. Saisissez toute opportunité de les abattre.",
+    "body": "Tant que cette Mission Secondaire est active, chaque fois qu'une figurine MONSTRE ou VÉHICULE ennemie est détruite, vous marquez 2PV et 1PV supplémentaire pour chacune des conditions ci-dessous qui sont satisfaites (toutes sont cumulatives) :\n■ La figurine détruite avait une caractéristique de Points de Vie de 10+.\n■ La figurine détruite avait une caractéristique de Points de Vie de 15+.\n■ La figurine détruite avait une caractéristique de Points de Vie de 20+.\n\nNotez que les PV sont marqués même si une telle figurine est détruite puis ensuite ressuscitée pour une raison quelconque. Si vous marquez des PV de cette Mission Secondaire pendant un tour, alors à la fin de ce tour cette Mission Secondaire est accomplie.\n\nSi vous utilisez des Missions Tactiques, alors quand cette Mission Secondaire est accomplie vous marquez 1PV supplémentaire. Cependant, si vous utilisez des Missions Tactiques, vous ne pouvez pas marquer plus de 8PV au total de cette Mission Secondaire."
+  },
+  {
+    "id": "secondary-mission-pariah-nexus-bring-it-down",
+    "lore": "L'armée adverse contient de nombreuses unités lourdement blindées. Saisissez toute opportunité de les abattre.",
+    "body": "Quand tirée : S'il n'y a pas d'unités MONSTRE ou VÉHICULE ennemies sur le champ de bataille, vous pouvez défausser cette carte et tirer une nouvelle carte Mission Secondaire.\n\nN'IMPORTE QUEL ROUND DE BATAILLE\nQUAND : Tant que cette carte est active.\nChaque fois qu'une unité MONSTRE ou VÉHICULE ennemie est détruite. 2PV\n+ Le total des caractéristiques de Points de Vie des figurines dans cette unité détruite était de 15+ (à sa Force de Départ). +2PV\n+ Le total des caractéristiques de Points de Vie des figurines dans cette unité détruite était de 20+ (à sa Force de Départ). +2PV\n\nNote : Les PV ci-dessus sont cumulatifs, donc détruire une unité MONSTRE ou VÉHICULE avec une caractéristique combinée de Points de Vie de 20 (à sa Force de Départ) vous rapporterait 6PV."
+  },
+  {
+    "id": "secondary-mission-chapter-approved-2025-26-bring-it-down",
+    "lore": "L'armée adverse contient de nombreuses unités lourdement blindées. Saisissez toute opportunité de les abattre.",
+    "body": "Quand tirée : S'il n'y a pas d'unités MONSTRE ou VÉHICULE ennemies sur le champ de bataille, vous pouvez défausser cette carte et tirer une nouvelle carte Mission Secondaire.\n\nN'IMPORTE QUEL ROUND DE BATAILLE\nQUAND : Tant que cette carte est active (si vous utilisez des Missions Fixes).\nChaque fois qu'une unité MONSTRE ou VÉHICULE ennemie est détruite. FIXE 2PV\n+ Le total des caractéristiques de Points de Vie des figurines dans cette unité détruite était de 15+ (à sa Force de Départ). FIXE +2PV (CUMULATIF)\n+ Le total des caractéristiques de Points de Vie des figurines dans cette unité détruite était de 20+ (à sa Force de Départ). FIXE +2PV (CUMULATIF)\n\nN'IMPORTE QUEL ROUND DE BATAILLE\nQUAND : Fin du tour de l'un ou l'autre joueur (si vous utilisez des Missions Tactiques).\nUne ou plusieurs unités MONSTRE ou VÉHICULE ennemies ont été détruites ce tour. TACTIQUE 4PV"
+  },
+  {
+    "id": "secondary-mission-capture-enemy-outpost",
+    "lore": "Un objectif vital a été identifié dans votre voisinage, mais il est actuellement détenu par l'ennemi. Vous avez ordre de le capturer à tout prix.",
+    "body": "À la fin de votre tour, si vous contrôlez un ou plusieurs marqueurs objectif dans la zone de déploiement de votre adversaire, cette Mission Secondaire est accomplie et vous marquez 8PV."
+  },
+  {
+    "id": "secondary-mission-cleanse",
+    "lore": "Les objectifs dans cette zone ont été souillés et doivent être purifiés avec un rituel et des flammes purificatrices.",
+    "body": "Dans votre phase de Tir, vous pouvez sélectionner une ou plusieurs unités de votre armée qui ne sont pas en état de choc et qui sont éligibles pour tirer. Jusqu'à la fin de votre tour, les unités que vous avez sélectionnées ne sont pas éligibles pour tirer ou déclarer une charge.\n\nÀ la fin de votre tour, chaque marqueur objectif qui n'est pas dans votre zone de déploiement que vous contrôlez et qui a une ou plusieurs de ces unités sélectionnées à portée est purifié par votre armée.\n\nSi un ou plusieurs marqueurs objectif sont purifiés par votre armée ce tour, cette Mission Secondaire est accomplie et vous marquez un nombre de PV selon le nombre de marqueurs objectif purifiés par votre armée ce tour, comme suit :\n\n■ 1 marqueur objectif purifié = 2PV si vous utilisez des Missions Fixes, ou 3PV si vous utilisez des Missions Tactiques.\n■ 2 marqueurs objectif ou plus purifiés = 4PV si vous utilisez des Missions Fixes, ou 5PV si vous utilisez des Missions Tactiques.\n"
+  },
+  {
+    "id": "secondary-mission-pariah-nexus-cleanse",
+    "lore": "Les objectifs dans cette zone ont été souillés et doivent être purifiés avec un rituel et des flammes purificatrices.",
+    "body": "PURIFIER (ACTION)\nDÉBUT : Votre phase de Tir.\nUNITÉS : Une ou plusieurs unités de votre armée à portée d'un marqueur objectif qui n'est pas dans votre zone de déploiement.\nFIN : Fin de votre tour, si l'unité effectuant cette Action est toujours à portée du même marqueur objectif et que vous contrôlez ce marqueur objectif.\nSI COMPLÉTÉE : Ce marqueur objectif est purifié par votre armée.\n\nN'IMPORTE QUEL ROUND DE BATAILLE\nQUAND : Fin de votre tour.\nUn marqueur objectif a été purifié par votre armée ce tour. 2PV\nOU\nDeux marqueurs objectif ou plus ont été purifiés par votre armée ce tour. 4PV\n"
+  },
+  {
+    "id": "secondary-mission-chapter-approved-2025-26-cleanse",
+    "lore": "Les objectifs dans cette zone ont été souillés et doivent être purifiés avec un rituel et des flammes purificatrices.",
+    "body": "PURIFIER (ACTION)\nDÉBUT : Votre phase de Tir.\nUNITÉS : Une ou plusieurs unités de votre armée à portée d'un marqueur objectif qui n'est pas dans votre zone de déploiement.\nFIN : Fin de votre tour, si l'unité effectuant cette Action est toujours à portée du même marqueur objectif et que vous contrôlez ce marqueur objectif.\nSI COMPLÉTÉE : Ce marqueur objectif est purifié par votre armée.\n\nN'IMPORTE QUEL ROUND DE BATAILLE\nQUAND : Fin de votre tour.\nUn marqueur objectif a été purifié par votre armée ce tour. 2PV\nOU\nDeux marqueurs objectif ou plus ont été purifiés par votre armée ce tour. FIXE 4PV TACTIQUE 5PV\n"
+  },
+  {
+    "id": "secondary-mission-pariah-nexus-containment",
+    "lore": "En installant des servo-sentinelles, en posant des pièges ou en démolissant les voies de sortie, vous devez piéger vos ennemis dans les limites de ce champ de bataille.",
+    "body": "CONFINEMENT (ACTION)\nDÉBUT : Votre phase de Tir.\nUNITÉS : Une ou plusieurs unités de votre armée qui sont entièrement à 9\" d'un ou plusieurs bords du champ de bataille et pas dans votre zone de déploiement. Sélectionnez un bord différent du champ de bataille pour chacune de ces unités.\nFIN : Immédiatement.\nSI COMPLÉTÉE : Chaque bord du champ de bataille que vous avez sélectionné est confiné par votre armée.\n\nN'IMPORTE QUEL ROUND DE BATAILLE\nQUAND : Fin de votre tour.\nPour chaque bord du champ de bataille confiné par votre armée ce tour. 3PV (JUSQU'À 6PV)"
+  },
+  {
+    "id": "secondary-mission-pariah-nexus-cull-the-horde",
+    "lore": "L'ennemi avance en masses grouillantes. Leurs rangs doivent être éclaircis si la victoire doit être remportée.",
+    "body": "Quand tirée : S'il n'y a pas d'unités ennemies sur le champ de bataille qui satisfont l'une ou l'autre des conditions requises pour accomplir cette carte, vous pouvez défausser cette carte et tirer une nouvelle carte Mission Secondaire.\n    \nN'IMPORTE QUEL ROUND DE BATAILLE\nQUAND : Tant que cette carte est active.\nPOINTS DE VICTOIRE\nChaque fois qu'une unité INFANTERIE ennemie est détruite, si une ou plusieurs des conditions suivantes sont satisfaites :\n\n• La Force de Départ de l'unité détruite était de 20+.\n• Le total des caractéristiques de Points de Vie des figurines dans l'unité détruite était de 25+ (à sa Force de Départ).\n• Quand le joueur de cette unité a ajouté cette unité à son armée, la valeur en points qu'il a soustraite du total autorisé pour cette bataille était suffisante pour que cette unité soit composée de 20 figurines ou plus.\n\n5PV\n\nNote : Pour les conditions ci-dessus, les figurines dans les unités de Leader attachées sont ignorées."
+  },
+  {
+    "id": "secondary-mission-chapter-approved-2025-26-cull-the-horde",
+    "lore": "L'ennemi avance en masses grouillantes. Leurs rangs doivent être éclaircis si la victoire doit être remportée.",
+    "body": "Quand tirée : S'il n'y a pas d'unités ennemies sur le champ de bataille qui satisfont la condition ci-dessous, vous pouvez défausser cette carte et tirer une nouvelle carte Mission Secondaire.\n    \nN'IMPORTE QUEL ROUND DE BATAILLE\nQUAND : Tant que cette carte est active (si vous utilisez des Missions Fixes).\nChaque fois qu'une unité INFANTERIE ennemie avec une force de départ de 13+ est détruite. FIXE 5PV\n\nN'IMPORTE QUEL ROUND DE BATAILLE\nQUAND : Fin du tour de l'un ou l'autre joueur (si vous utilisez des Missions Tactiques).\nUne ou plusieurs unités INFANTERIE ennemies avec une force de départ de 13+ (incluant les unités Attachées) ont été détruites ce tour. TACTIQUE 5PV"
+  },
+  {
+    "id": "secondary-mission-defend-stronghold",
+    "lore": "Vous êtes chargé de la défense d'un objectif clé. Il ne doit pas être permis de tomber aux mains de l'ennemi.",
+    "body": "À la fin du tour de votre adversaire, ou à la fin de la bataille (selon ce qui vient en premier), si vous contrôlez un ou plusieurs marqueurs objectif dans votre propre zone de déploiement, cette Mission Secondaire est accomplie et vous marquez 3PV.\n\nCette Mission Secondaire ne peut pas être accomplie pendant le premier round de bataille ; Si vous tirez cette carte Mission Secondaire pendant le premier round de bataille, tirez une nouvelle carte Mission Secondaire et mélangez cette carte Mission Secondaire dans votre deck de Missions Secondaires."
+  },
+  {
+    "id": "secondary-mission-pariah-nexus-defend-stronghold",
+    "lore": "Vous êtes chargé de défendre un objectif clé. Il ne doit pas tomber aux mains de l'ennemi.",
+    "body": "QUAND : Fin du tour de votre adversaire ou fin de la bataille (selon ce qui arrive en premier).\nVous contrôlez un ou plusieurs marqueurs d'objectif dans votre zone de déploiement. 3PV\nCette Mission Secondaire ne peut pas être accomplie pendant le premier round de bataille ; Si vous piochez cette carte de Mission Secondaire pendant le premier round de bataille, piochez une nouvelle carte de Mission Secondaire et mélangez cette carte de Mission Secondaire dans votre deck de Missions Secondaires."
+  },
+  {
+    "id": "secondary-mission-chapter-approved-2025-26-defend-stronghold",
+    "lore": "Vous êtes chargé de défendre un objectif clé. Il ne doit pas tomber aux mains de l'ennemi.",
+    "body": "Quand Piochée : Si c'est le premier round de bataille, piochez une nouvelle carte de Mission Secondaire et mélangez cette carte dans votre deck de Missions Secondaires.\n    \nÀ PARTIR DU DEUXIÈME ROUND DE BATAILLE\nQUAND : Fin du tour de votre adversaire ou fin de la bataille (selon ce qui arrive en premier).\nVous contrôlez un ou plusieurs marqueurs d'objectif dans votre zone de déploiement. 3PV"
+  },
+  {
+    "id": "secondary-mission-deploy-teleport-homer",
+    "lore": "Une flotte alliée approche, prête à lancer une invasion à grande échelle de cette planète. Si nos forces d'avant-garde déploient une série de balises de téléportation et de balises d'atterrissage profondément en territoire ennemi, les troupes à bord de nos vaisseaux pourront lancer un assaut surprise mortel depuis l'orbite.",
+    "body": "Dans votre phase de Tir, vous pouvez sélectionner une unité de votre armée qui n'est pas en État de choc et qui est éligible pour tirer. Jusqu'à la fin de votre tour, cette unité n'est pas éligible pour tirer ou déclarer une charge.\n\nÀ la fin de votre tour, si cette unité est dans la zone de déploiement de votre adversaire, ou à 6\" ou moins du centre du champ de bataille, elle déploie une balise de téléportation à cet endroit, cette Mission Secondaire est accomplie et vous marquez un nombre de PV selon l'endroit où la balise de téléportation a été déployée, comme suit :\n■ Centre du champ de bataille = 3PV.\n■ Zone de déploiement de l'adversaire = 4PV si vous utilisez des Missions Fixes, ou 5PV si vous utilisez des Missions Tactiques"
+  },
+  {
+    "id": "secondary-mission-chapter-approved-2025-26-display-of-might",
+    "lore": "L'intimidation est l'arme la plus puissante. Dégradez les capacités de combat de votre adversaire pour démontrer votre supériorité et éroder le moral ennemi.",
+    "body": "Quand Piochée : Si c'est le premier round de bataille, piochez une nouvelle carte de Mission Secondaire et mélangez cette carte dans votre deck de Missions Secondaires\n\nÀ PARTIR DU DEUXIÈME ROUND DE BATAILLE\nQUAND : Fin de votre tour.\nIl y a plus d'unités de votre armée que de l'armée de votre adversaire entièrement dans le No Man's Land. 4PV"
+  },
+  {
+    "id": "secondary-mission-engage-on-all-fronts",
+    "lore": "Cette zone est d'une importance extrême. Vous devez mener un assaut total immédiat pour la capturer et la refuser définitivement à notre ennemi.",
+    "body": "À la fin de votre tour, si vous avez une ou plusieurs unités qualifiées (voir ci-dessous) de votre armée entièrement dans trois quarts de table différents ou plus, et que ces unités sont toutes à plus de 3\" de tout autre quart de table, cette Mission Secondaire est accomplie et vous marquez 4PV si vous avez des unités qualifiées dans quatre quarts de table différents, ou 2PV si vous avez des unités qualifiées dans trois quarts de table différents. Tant qu'une unité est en État de choc, ce n'est pas une unité qualifiée.\n\nSi, lorsque vous piochez cette carte de Mission Secondaire, il ne vous reste qu'une ou deux unités qualifiées dans votre armée, vous pouvez défausser cette carte de Mission Secondaire et piocher une nouvelle carte de Mission Secondaire.\n\nSi vous utilisez des Missions Tactiques, alors lorsque cette Mission Secondaire est accomplie, vous marquez 1PV supplémentaire (pour un maximum de 5PV).\n"
+  },
+  {
+    "id": "secondary-mission-pariah-nexus-engage-on-all-fronts",
+    "lore": "Cette zone est d'une importance extrême. Vous devez mener un assaut total immédiat pour la capturer et la refuser définitivement à notre ennemi.",
+    "body": "Quand Piochée : S'il y a moins de trois unités de votre armée sur le champ de bataille, vous pouvez défausser cette carte et piocher une nouvelle carte de Mission Secondaire.\n    \nN'IMPORTE QUEL ROUND DE BATAILLE\nQUAND : Fin de votre tour.\nUne ou plusieurs unités de votre armée (excluant les AÉRONEFS et les unités en État de choc) sont entièrement dans trois quarts de table différents, et ces unités sont toutes à plus de 6\" du centre du champ de bataille. 2PV\nOU\nUne ou plusieurs unités de votre armée (excluant les AÉRONEFS et les unités en État de choc) sont entièrement dans quatre quarts de table différents, et ces unités sont toutes à plus de 6\" du centre du champ de bataille. 4PV"
+  },
+  {
+    "id": "secondary-mission-chapter-approved-2025-26-engage-on-all-fronts",
+    "lore": "Cette zone est d'une importance extrême. Vous devez mener un assaut total immédiat pour la capturer et la refuser définitivement à notre ennemi.",
+    "body": "Si une ou plusieurs unités de votre armée (excluant les AÉRONEFS et les unités en État de choc) sont entièrement dans un quart de table et que ces unités sont à plus de 6\" du centre du champ de bataille, vous avez une présence dans ce quart de table.\n    \nN'IMPORTE QUEL ROUND DE BATAILLE\nQUAND : Fin de votre tour.\nVous avez une présence dans deux quarts de table. 1PV\nOU\nVous avez une présence dans trois quarts de table. 2PV\nOU\nVous avez une présence dans quatre quarts de table. 4PV"
+  },
+  {
+    "id": "secondary-mission-pariah-nexus-establish-locus",
+    "lore": "Qu'il s'agisse d'une balise de téléportation crépitant d'énergies arcaniques, d'un cercle d'invocation démoniaque, d'un marqueur phéromonal ou d'un autre moyen de guider les forces sur le champ de bataille, ce locus doit être établi rapidement pour ouvrir la voie à la victoire.",
+    "body": "ÉTABLIR UN LOCUS (ACTION)\nDÉBUT : Votre phase de Tir.\nUNITÉS : Une unité de votre armée.\nFIN : Fin de votre tour, si cette unité est dans la zone de déploiement de votre adversaire ou à 6\" ou moins du centre du champ de bataille.\nSI ACCOMPLIE : Votre unité établit un locus.\n\nN'IMPORTE QUEL ROUND DE BATAILLE\nQUAND : Fin de votre tour.\nVotre unité a établi un locus ce tour et est à 6\" ou moins du centre du champ de bataille. 2PV\nOU\nVotre unité a établi un locus ce tour et est dans la zone de déploiement de votre adversaire. 4PV"
+  },
+  {
+    "id": "secondary-mission-chapter-approved-2025-26-establish-locus",
+    "lore": "Qu'il s'agisse d'une balise de téléportation crépitant d'énergies arcaniques, d'un cercle d'invocation démoniaque, d'un marqueur phéromonal ou d'un autre moyen de guider les forces sur le champ de bataille, ce locus doit être établi rapidement pour ouvrir la voie à la victoire.",
+    "body": "ÉTABLIR UN LOCUS (ACTION)\nDÉBUT : Votre phase de Tir.\nUNITÉS : Une unité de votre armée.\nFIN : Fin de votre tour, si cette unité est dans la zone de déploiement de votre adversaire ou à 6\" ou moins du centre du champ de bataille.\nSI ACCOMPLIE : Votre unité établit un locus.\n\nN'IMPORTE QUEL ROUND DE BATAILLE\nQUAND : Fin de votre tour.\nVotre unité a établi un locus ce tour et est à 6\" ou moins du centre du champ de bataille. 2PV\nOU\nVotre unité a établi un locus ce tour et est dans la zone de déploiement de votre adversaire. 4PV"
+  },
+  {
+    "id": "secondary-mission-extend-battle-lines",
+    "lore": "Le champ de bataille se gagne mètre par mètre. Continuez à établir une forte présence militaire dans la zone.",
+    "body": "À la fin de votre tour, si vous contrôlez un ou plusieurs marqueurs d'objectif dans votre propre zone de déploiement et que vous contrôlez également un ou plusieurs marqueurs d'objectif dans le No Man's Land, cette Mission Secondaire est accomplie et vous marquez 5PV.\n\nS'il ne vous reste qu'une seule unité dans votre armée, alors cette Mission Secondaire est accomplie à la fin de votre tour si cette unité contrôle un marqueur d'objectif dans le No Man's Land, mais dans ce cas vous marquez 2PV au lieu de 5PV."
+  },
+  {
+    "id": "secondary-mission-pariah-nexus-extend-battle-lines",
+    "lore": "Le champ de bataille se gagne mètre par mètre. Continuez à établir une forte présence militaire dans la zone.",
+    "body": "N'IMPORTE QUEL ROUND DE BATAILLE\nQUAND : Fin de votre tour.\nVous contrôlez un ou plusieurs marqueurs d'objectif dans votre zone de déploiement et un ou plusieurs marqueurs d'objectif dans le No Man's Land. 5PV\nOU\nVous n'avez qu'une seule unité sur le champ de bataille, et cette unité contrôle un marqueur d'objectif dans le No Man's Land. 2PV"
+  },
+  {
+    "id": "secondary-mission-chapter-approved-2025-26-extend-battle-lines",
+    "lore": "Le champ de bataille se gagne mètre par mètre. Continuez à établir une forte présence militaire dans la zone.",
+    "body": "N'IMPORTE QUEL ROUND DE BATAILLE\nQUAND : Fin de votre tour.\nVous contrôlez un ou plusieurs marqueurs d'objectif dans votre zone de déploiement et un ou plusieurs marqueurs d'objectif dans le No Man's Land. 4PV\nOU\nVous contrôlez un ou plusieurs marqueurs d'objectif dans le No Man's Land. 2PV"
+  },
+  {
+    "id": "secondary-mission-investigate-signals",
+    "lore": "Notre flotte a reçu un signal mystérieux dans cette zone de guerre, et sa source a été identifiée comme provenant de quelque part aux alentours de ce champ de bataille. Localisez-la et sécurisez-la sans délai.",
+    "body": "Dans votre phase de Tir, vous pouvez sélectionner une ou plusieurs unités de votre armée qui ne sont pas en état de choc et qui sont éligibles pour tirer. Jusqu'à la fin de votre tour, les unités que vous avez sélectionnées ne sont pas éligibles pour tirer ou déclarer une charge.\n\nÀ la fin de votre tour, chaque coin du champ de bataille qui a une ou plusieurs de ces unités sélectionnées entièrement à 9\" ou moins de celui-ci est scanné par votre armée.\n\nSi un ou plusieurs coins sont scannés par votre armée, cette Mission Secondaire est accomplie et vous marquez 2PV pour chaque coin scanné par votre armée ce tour."
+  },
+  {
+    "id": "secondary-mission-pariah-nexus-marked-for-death",
+    "lore": "Ces cibles ennemies spécifiques doivent être éliminées pour assurer la victoire, peu importe à quel point elles peuvent sembler insignifiantes.",
+    "body": "Quand Tirée : Votre adversaire doit sélectionner trois unités de son armée sur le champ de bataille. S'il n'y a qu'une ou deux unités de son armée sur le champ de bataille, il doit sélectionner ces unités. S'il n'y a aucune unité de son armée sur le champ de bataille, défaussez cette carte et piochez une nouvelle carte de Mission Secondaire.\n    \nN'IMPORTE QUEL ROUND DE BATAILLE\nQUAND : Fin du tour de n'importe quel joueur.\nUne ou plusieurs des unités sélectionnées ont été détruites (ou retirées du champ de bataille pour toute autre raison) ce tour. 5PV"
+  },
+  {
+    "id": "secondary-mission-chapter-approved-2025-26-marked-for-death",
+    "lore": "Ces cibles ennemies spécifiques doivent être éliminées pour assurer la victoire, peu importe à quel point elles peuvent sembler insignifiantes.",
+    "body": "Quand Tirée : Votre adversaire doit sélectionner trois unités de son armée sur le champ de bataille. S'il n'y a qu'une ou deux unités de son armée sur le champ de bataille, il doit sélectionner ces unités. Les unités sélectionnées sont vos unités Cible Alpha. Vous pouvez ensuite sélectionner une unité de l'armée de votre adversaire sur le champ de bataille pour être votre unité Cible Gamma. S'il n'y a aucune unité de son armée sur le champ de bataille, défaussez cette carte et piochez une nouvelle carte de Mission Secondaire.\n    \nN'IMPORTE QUEL ROUND DE BATAILLE\nQUAND : Fin du tour de n'importe quel joueur.\nUne ou plusieurs de vos unités Cible Alpha ont été détruites (ou retirées du champ de bataille pour toute autre raison) ce tour. 5PV\n\nOU\n\nAucune de vos unités Cible Alpha n'a été détruite (ou retirée du champ de bataille pour toute autre raison) ce tour, mais votre unité Cible Gamma a été détruite (ou retirée du champ de bataille pour toute autre raison) ce tour. 2PV"
+  },
+  {
+    "id": "secondary-mission-no-prisoners",
+    "lore": "Exterminez vos ennemis.",
+    "body": "Tant que cette Mission Secondaire est active, chaque fois qu'une unité ennemie est détruite, vous marquez 2PV (jusqu'à un maximum de 5PV].\n\nNotez que les PV sont marqués même si une telle unité est détruite puis ressuscitée par la suite pour une raison quelconque. Si vous marquez des PV de cette Mission Secondaire pendant un tour, alors à la fin de ce tour cette Mission Secondaire est accomplie."
+  },
+  {
+    "id": "secondary-mission-pariah-nexus-no-prisoners",
+    "lore": "Exterminez vos ennemis.",
+    "body": "N'IMPORTE QUEL ROUND DE BATAILLE\nQUAND : Tant que cette carte est active.\nChaque fois qu'une unité ennemie est détruite. 2PV (JUSQU'À 5PV)"
+  },
+  {
+    "id": "secondary-mission-chapter-approved-2025-26-no-prisoners",
+    "lore": "Ne montrez aucune pitié. Exterminez vos ennemis.",
+    "body": "N'IMPORTE QUEL ROUND DE BATAILLE\nQUAND : Tant que cette carte est active (si vous utilisez des Missions Fixes).\nChaque fois qu'une unité Garde du Corps ennemie ou une unité non-PERSONNAGE ennemie est détruite. FIXE 2PV (JUSQU'À 5PV)\n\nN'IMPORTE QUEL ROUND DE BATAILLE\nQUAND : Tant que cette carte est active (si vous utilisez des Missions Tactiques).\nChaque fois qu'une unité ennemie est détruite. TACTIQUE 2PV (JUSQU'À 5PV)"
+  },
+  {
+    "id": "secondary-mission-overwhelming-force",
+    "lore": "Balayez l'ennemi de la surface du champ de bataille.",
+    "body": "Tant que cette Mission Secondaire est active, chaque fois qu'une unité ennemie qui a commencé le tour à portée d'un marqueur d'objectif est détruite, vous marquez 3PV (jusqu'à un maximum de 5PV).\n\nNotez que les PV sont marqués même si une telle unité est détruite puis ressuscitée par la suite pour une raison quelconque. Si vous marquez des PV de cette Mission Secondaire pendant un tour, alors à la fin de ce tour cette Mission Secondaire est accomplie."
+  },
+  {
+    "id": "secondary-mission-pariah-nexus-overwhelming-force",
+    "lore": "Balayez l'ennemi de la surface du champ de bataille.",
+    "body": "N'IMPORTE QUEL ROUND DE BATAILLE\nQUAND : Tant que cette carte est active.\nChaque fois qu'une unité ennemie qui a commencé le tour à portée d'un marqueur d'objectif est détruite. 3PV (JUSQU'À 5PV)"
+  },
+  {
+    "id": "secondary-mission-chapter-approved-2025-26-overwhelming-force",
+    "lore": "Balayez l'ennemi de la surface du champ de bataille.",
+    "body": "N'IMPORTE QUEL ROUND DE BATAILLE\nQUAND : Tant que cette carte est active.\nChaque fois qu'une unité ennemie qui a commencé le tour à portée d'un marqueur d'objectif est détruite. 3PV (JUSQU'À 5PV)\n\nNote du Concepteur : Les unités Meneur et Garde du Corps détruites comptent séparément pour marquer cette Mission Secondaire, à condition que l'unité Attachée ait commencé le tour à portée d'un marqueur d'objectif."
+  },
+  {
+    "id": "secondary-mission-pariah-nexus-raise-banners-mission-rule",
+    "lore": "Il ne suffit pas aujourd'hui de simplement vaincre l'ennemi. Vous devez lever haut vos bannières, annonçant vos conquêtes à tous ceux qui en sont témoins.",
+    "body": "À la fin du tour de chaque joueur, si une unité LIGNE DE BATAILLE de son armée est à portée d'un marqueur d'objectif que ce joueur contrôle, cette unité lève une bannière sur ce marqueur d'objectif : ce joueur marque 1PV (qui est compté dans son score de Mission Secondaire), et les unités de ce joueur ne peuvent plus lever de bannière sur ce marqueur d'objectif."
+  },
+  {
+    "id": "secondary-mission-pariah-nexus-recover-assets",
+    "lore": "Les ressources stratégiques dispersées doivent être rapidement récupérées.",
+    "body": "Quand Tirée : S'il y a moins de deux unités de votre armée sur le champ de bataille, vous pouvez défausser cette carte et piocher une nouvelle carte de Mission Secondaire.\nRÉCUPÉRER DES RESSOURCES (ACTION)\nCOMMENCE : Votre phase de Tir.\nUNITÉS : Deux unités ou plus de votre armée, si chacune de ces unités est entièrement dans une zone différente parmi les suivantes : votre zone de déploiement ; le No Man's Land ; la zone de déploiement de votre adversaire.\nSE TERMINE : Fin du prochain tour de votre adversaire ou fin de la bataille (selon ce qui arrive en premier), si deux ou trois de ces unités sont sur le champ de bataille.\nSI COMPLÉTÉE : Ces unités récupèrent des ressources.\nN'IMPORTE QUEL ROUND DE BATAILLE\nQUAND : Fin du tour de votre adversaire ou fin de la bataille (selon ce qui arrive en premier).\nDeux de vos unités ont récupéré des ressources ce tour.\nOU\nPOINTS DE VICTOIRE\n3PV\nTrois de vos unités ont récupéré des ressources ce tour.\n6PV"
+  },
+  {
+    "id": "secondary-mission-chapter-approved-2025-26-recover-assets",
+    "lore": "Les ressources stratégiques dispersées doivent être rapidement récupérées.",
+    "body": "Quand Tirée : Si vous jouez une mission Incursion, ou s'il y a moins de trois unités de votre armée sur le champ de bataille, vous pouvez défausser cette carte et piocher une nouvelle carte de Mission Secondaire.\n\nRÉCUPÉRER DES RESSOURCES (ACTION)\nCOMMENCE : Votre phase de Tir.\nUNITÉS : Deux unités ou plus de votre armée, si chacune de ces unités est entièrement dans une zone différente parmi les suivantes : votre zone de déploiement ; le No Man's Land ; la zone de déploiement de votre adversaire.\nSE TERMINE : Fin de votre tour, si deux ou trois de ces unités sont sur le champ de bataille.\nSI COMPLÉTÉE : Ces unités récupèrent des ressources.\n\nN'IMPORTE QUEL ROUND DE BATAILLE\nQUAND : Fin de votre tour ou fin de la bataille (selon ce qui arrive en premier).\nDeux de vos unités ont récupéré des ressources ce tour. 3PV\nOU\nTrois de vos unités ont récupéré des ressources ce tour.\n5PV"
+  },
+  {
+    "id": "secondary-mission-pariah-nexus-sabotage",
+    "lore": "Cette région regorge de ressources stratégiques ou de caches de ravitaillement vitales pour l'ennemi. Veillez à ce qu'elles soient réduites à l'état de débris enflammés.",
+    "body": "SABOTAGE (ACTION)\nDÉBUT : Votre phase de Tir.\nUNITÉS : Une unité de votre armée qui se trouve dans un élément de terrain et pas dans votre zone de déploiement.\nFIN : Fin du prochain tour de votre adversaire ou fin de la bataille (selon ce qui arrive en premier), si votre unité est sur le champ de bataille.\nSI ACCOMPLI : Votre unité commet un sabotage.\n\nN'IMPORTE QUEL ROUND DE BATAILLE\nQUAND : Fin du tour de votre adversaire ou fin de la bataille (selon ce qui arrive en premier).\nVotre unité a commis un sabotage ce tour et n'est pas dans la zone de déploiement de votre adversaire. 3PV\nOU\nVotre unité a commis un sabotage ce tour et se trouve dans la zone de déploiement de votre adversaire. 6PV"
+  },
+  {
+    "id": "secondary-mission-chapter-approved-2025-26-sabotage",
+    "lore": "Cette région regorge de ressources stratégiques ou de caches de ravitaillement vitales pour l'ennemi. Veillez à ce qu'elles soient réduites à l'état de débris enflammés.",
+    "body": "SABOTAGE (ACTION)\nDÉBUT : Votre phase de Tir.\nUNITÉS : Une unité de votre armée qui se trouve dans un élément de terrain et pas dans votre zone de déploiement.\nFIN : Fin du prochain tour de votre adversaire ou fin de la bataille (selon ce qui arrive en premier), si votre unité est sur le champ de bataille.\nSI ACCOMPLI : Votre unité commet un sabotage.\n\nN'IMPORTE QUEL ROUND DE BATAILLE\nQUAND : Fin du tour de votre adversaire ou fin de la bataille (selon ce qui arrive en premier).\nVotre unité a commis un sabotage ce tour et n'est pas dans la zone de déploiement de votre adversaire. 3PV\nOU\nVotre unité a commis un sabotage ce tour et se trouve dans la zone de déploiement de votre adversaire. 6PV"
+  },
+  {
+    "id": "secondary-mission-secure-no-mans-land",
+    "lore": "Vous devez avancer rapidement dans le no man's land et vous en emparer avant que l'ennemi ne le fasse, sous peine qu'il prenne le contrôle de tout le champ de bataille.",
+    "body": "À la fin de votre tour, si vous contrôlez deux marqueurs d'objectif ou plus dans le No Man's Land, cette Mission Secondaire est accomplie et vous marquez 5PV.\n\nSi, à la fin de votre tour, vous ne contrôlez qu'un seul marqueur d'objectif dans le No Man's Land, cette Mission Secondaire est tout de même accomplie, mais dans ce cas vous marquez 2PV au lieu de 5PV.\n"
+  },
+  {
+    "id": "secondary-mission-pariah-nexus-secure-no-mans-land",
+    "lore": "Vous devez avancer rapidement dans le no man's land et vous en emparer avant que l'ennemi ne le fasse, sous peine qu'il prenne le contrôle de tout le champ de bataille.",
+    "body": "N'IMPORTE QUEL ROUND DE BATAILLE\nQUAND : Fin de votre tour.\nVous contrôlez un marqueur d'objectif dans le No Man's Land. 2PV\nOU\nVous contrôlez deux marqueurs d'objectif ou plus dans le No Man's Land. 5PV"
+  },
+  {
+    "id": "secondary-mission-chapter-approved-2025-26-secure-no-mans-land",
+    "lore": "Vous devez avancer rapidement dans le no man's land et vous en emparer avant que l'ennemi ne le fasse, sous peine qu'il prenne le contrôle de tout le champ de bataille.",
+    "body": "N'IMPORTE QUEL ROUND DE BATAILLE\nQUAND : Fin de votre tour.\nVous contrôlez un marqueur d'objectif dans le No Man's Land. 2PV\nOU\nVous contrôlez deux marqueurs d'objectif ou plus dans le No Man's Land. 5PV"
+  },
+  {
+    "id": "secondary-mission-storm-hostile-objective",
+    "lore": "Dominez le champ de bataille. Prenez d'assaut chaque site d'importance tactique et ne laissez aucun endroit où l'ennemi puisse se cacher.",
+    "body": "À la fin de votre tour, si l'une des conditions ci-dessous est remplie, cette Mission Secondaire est accomplie et vous marquez 4PV si vous utilisez des Missions Fixes, ou 5PV si vous utilisez des Missions Tactiques :\n• Vous contrôlez un ou plusieurs marqueurs d'objectif qui étaient contrôlés par votre adversaire au début de votre tour.\n• Votre adversaire ne contrôlait aucun marqueur d'objectif au début de votre tour et vous contrôlez un ou plusieurs marqueurs d'objectif que vous ne contrôliez pas au début de votre tour.\n\nCette Mission Secondaire ne peut pas être accomplie pendant le premier round de bataille ; Si vous avez tiré au hasard cette carte de Mission Secondaire pendant le premier round de bataille, tirez une nouvelle carte de Mission Secondaire et remélangez cette carte de Mission Secondaire dans votre deck de Missions Secondaires."
+  },
+  {
+    "id": "secondary-mission-pariah-nexus-storm-hostile-objective",
+    "lore": "Dominez le champ de bataille. Prenez d'assaut chaque site d'importance tactique et ne laissez aucun endroit où l'ennemi puisse se cacher.",
+    "body": "Lorsque Tirée : Si c'est le premier round de bataille, vous pouvez tirer une nouvelle carte de Mission Secondaire et remélanger cette carte dans votre deck de Missions Secondaires.\n\nN'IMPORTE QUEL ROUND DE BATAILLE\nQUAND : Fin de votre tour.\nVous contrôlez un ou plusieurs marqueurs d'objectif qui étaient contrôlés par votre adversaire au début du tour. 4PV\nOU\nVotre adversaire ne contrôlait aucun marqueur d'objectif au début du tour, et vous contrôlez un ou plusieurs marqueurs d'objectif que vous ne contrôliez pas au début du tour. 4PV"
+  },
+  {
+    "id": "secondary-mission-chapter-approved-2025-26-storm-hostile-objective",
+    "lore": "Dominez le champ de bataille. Prenez d'assaut chaque site d'importance tactique et ne laissez aucun endroit où l'ennemi puisse se cacher.",
+    "body": "Lorsque Tirée : Si c'est le premier round de bataille, vous pouvez tirer une nouvelle carte de Mission Secondaire et remélanger cette carte dans votre deck de Missions Secondaires.\n\nN'IMPORTE QUEL ROUND DE BATAILLE\nQUAND : Fin de votre tour.\nVous contrôlez un ou plusieurs marqueurs d'objectif qui étaient contrôlés par votre adversaire au début du tour. 4PV\nOU\nVotre adversaire ne contrôlait aucun marqueur d'objectif au début du tour, et vous contrôlez un ou plusieurs marqueurs d'objectif que vous ne contrôliez pas au début du tour. 4PV"
+  },
+  {
+    "id": "challenger-card-mission-chapter-approved-2025-26-secure-extraction-zone",
+    "lore": "",
+    "body": "DÉBUT : Votre phase de tir. \n\nUNITÉS : Une unité de votre armée qui n'est pas dans votre zone de déploiement et qui est entièrement à 9\" ou moins d'un ou plusieurs bords du champ de bataille.\n            \nFIN : Immédiatement.\n\nSI ACCOMPLI : Vous marquez 3PV."
+  },
+  {
+    "id": "challenger-card-mission-chapter-approved-2025-26-establish-comms",
+    "lore": "",
+    "body": "DÉBUT : Votre phase de Tir.\nUNITÉS : Une unité de votre armée qui est à plus de 15\" de toutes les autres unités de votre armée.\nFIN : Immédiatement.\nSI ACCOMPLI : Vous marquez 3PV."
+  },
+  {
+    "id": "challenger-card-mission-chapter-approved-2025-26-self-preservation",
+    "lore": "",
+    "body": "DÉBUT : Votre phase de Tir.\nUNITÉS : Une unité de votre armée.\nFIN : Fin de votre tour, si cette unité est à plus de 18\" de toutes les unités ennemies.\nSI ACCOMPLI : Vous marquez 3PV."
+  },
+  {
+    "id": "challenger-card-mission-chapter-approved-2025-26-zone-defence",
+    "lore": "",
+    "body": "Pour chacune des zones suivantes, une ou plusieurs unités de votre armée (à l'exception des AÉRONEFS et des unités en état de choc) sont entièrement dans cette zone ;\n- Votre zone de déploiement.\n- À 6\" du centre du champ de bataille.\n- Le No Man's Land.\n- La zone de déploiement de votre adversaire.\n\nJusqu'à un maximum de 1PV par unité."
+  },
+  {
+    "id": "challenger-card-mission-chapter-approved-2025-26-dug-in",
+    "lore": "",
+    "body": "QUAND : Fin de votre tour.\n      \n  Pour chaque marqueur d'objectif que vous contrôlez.\n  \n  1PV (jusqu'à 3PV)"
+  },
+  {
+    "id": "challenger-card-mission-chapter-approved-2025-26-sow-chaos",
+    "lore": "",
+    "body": "QUAND : Fin de votre tour.\n      \nUne ou plusieurs figurines ennemies de deux unités différentes ou plus ont été détruites ce tour.\n\n3PV"
+  },
+  {
+    "id": "challenger-card-mission-chapter-approved-2025-26-focused-effort",
+    "lore": "",
+    "body": "QUAND : Fin de votre tour.\n      \nDes figurines de deux unités ou plus de votre armée ont effectué une ou plusieurs attaques contre la même unité ennemie ce tour, et des figurines de cette unité ennemie ont perdu une ou plusieurs blessures suite à ces attaques.\n\n3PV"
+  },
+  {
+    "id": "challenger-card-mission-chapter-approved-2025-26-attrition",
+    "lore": "",
+    "body": "QUAND : Fin de votre tour.\n\nUne ou plusieurs unités ennemies ont été détruites\nce tour."
+  },
+  {
+    "id": "challenger-card-mission-chapter-approved-2025-26-over-the-line",
+    "lore": "",
+    "body": "QUAND : Fin de votre tour.\n      \nUne ou plusieurs unités de votre armée (à l'exception des AÉRONEFS et des unités en état de choc) se trouvent dans la zone de déploiement de votre adversaire.\n\n3PV"
+  },
+  {
+    "id": "stratagem-adepta-sororitas-divine-intervention",
+    "lore": "Parfois, la mort est évitée de si peu que la seule explication est l'intervention divine.",
     "whenRules": "N'importe quelle phase.",
-    "targetRules": "Une unité Personnage Adeptus Astartes de votre armée qui vient d'être détruite. Vous pouvez utiliser ce Stratagème sur cette unité même si elle vient d'être détruite.",
-    "effectRules": "Jusqu'à la fin de la bataille, chaque fois qu'une unité Adeptus Astartes amie effectue une attaque qui cible l'unité ennemie qui vient de détruire votre unité Personnage, vous pouvez relancer le jet de touche.",
+    "targetRules": "Une unité de Personnage Adepta Sororitas de votre armée qui vient d'être détruite. Vous pouvez utiliser ce Stratagème sur cette unité même si elle vient d'être détruite.",
+    "effectRules": "Défaussez 1 à 3 dés Miracle. À la fin de la phase, replacez la dernière figurine détruite de votre unité sur le champ de bataille, aussi près que possible de l'endroit où elle a été détruite et pas à Portée d'Engagement de figurines ennemies. Cette figurine est replacée avec un nombre de blessures restantes égal au nombre de dés Miracle que vous avez défaussés.",
+    "restrictionRules": "Vous ne pouvez pas sélectionner Sainte Célestine comme cible de ce Stratagème. Vous ne pouvez pas sélectionner le même Personnage comme cible de ce Stratagème plus d'une fois par bataille."
+  },
+  {
+    "id": "stratagem-adepta-sororitas-light-of-the-emperor",
+    "lore": "La radiance de l'Empereur brille sur ses guerriers, les enhardissant au cœur de la bataille dans leur heure la plus sombre.",
+    "whenRules": "Phase de commandement.",
+    "targetRules": "Une unité Adepta Sororitas de votre armée qui est en dessous de son Effectif de Départ. Pour les besoins de ce Stratagème, si une unité a un Effectif de Départ de 1, elle est considérée comme étant en dessous de son Effectif de Départ tant qu'elle a perdu une ou plusieurs blessures.",
+    "effectRules": "Jusqu'à la fin du tour, votre unité peut ignorer tous les modificateurs à ses caractéristiques et/ou à tout jet ou test effectué pour elle (à l'exception des modificateurs aux jets de sauvegarde).",
     "restrictionRules": null
   },
   {
-    "id": "stratagem-imperial-knights-squires’-duty",
-    "lore": "Sous le regard scrutateur et le jugement de leurs supérieurs Nobles, les pilotes d'Armiger redoubleront d'efforts, attaquant comme un seul homme pour balayer leurs ennemis.",
-    "whenRules": "Au début de votre phase de Tir ou au début de la phase de Combat.",
-    "targetRules": "Deux figurines Armiger ou plus de votre armée et une unité ennemie qui est une cible éligible pour toutes ces figurines Armiger.",
-    "effectRules": "Jusqu'à la fin de la phase, améliorez de 1 les caractéristiques de Force et de Pénétration d'armure des armes équipées par ces figurines Armiger. Si votre armée est Honorée, jusqu'à la fin de la phase, ajoutez également 1 à la caractéristique de Dégâts de ces armes.",
+    "id": "stratagem-adepta-sororitas-holy-rage",
+    "lore": "Avec des psaumes sur les lèvres, les fidèles se jettent en avant, abattant l'ennemi avec la force intérieure née de la foi en l'Empereur.",
+    "whenRules": "Phase de combat.",
+    "targetRules": "Une unité Adepta Sororitas de votre armée qui n'a pas été sélectionnée pour combattre cette phase.",
+    "effectRules": "Jusqu'à la fin de la phase, chaque fois qu'une figurine de votre unité effectue une attaque de mêlée, ajoutez 1 au jet de blessure.",
     "restrictionRules": null
   },
   {
-    "id": "stratagem-orks-’ard-as-nails",
-    "lore": "Même le plus humble Boy Ork peut encaisser une quantité de punition incroyable avant d'être tué.",
+    "id": "stratagem-adepta-sororitas-spirit-of-the-martyr",
+    "lore": "Même dans leur dernier souffle, les Sororitas dispensent le jugement de l'Empereur.",
+    "whenRules": "Phase de combat, juste après qu'une unité ennemie a sélectionné ses cibles.",
+    "targetRules": "Une unité Adepta Sororitas de votre armée qui a été sélectionnée comme cible d'une ou plusieurs attaques de l'unité attaquante.",
+    "effectRules": "Jusqu'à la fin de la phase, chaque fois qu'une figurine de votre unité est détruite, si cette figurine n'a pas combattu cette phase, ne la retirez pas du jeu. La figurine détruite peut combattre après que l'unité du modèle attaquant a fini d'effectuer ses attaques, puis elle est retirée du jeu.",
+    "restrictionRules": null
+  },
+  {
+    "id": "stratagem-adepta-sororitas-suffering-&-sacrifice",
+    "lore": "La souffrance est une prière de base pour l'Adepta Sororitas, et le destin d'un martyr n'apporte qu'une plus grande gloire au Dieu-Empereur.",
+    "whenRules": "Début de la phase de combat.",
+    "targetRules": "Une unité d'Infanterie Adepta Sororitas ou Marcheur Adepta Sororitas de votre armée.",
+    "effectRules": "Jusqu'à la fin de la phase, chaque fois qu'une figurine ennemie à Portée d'Engagement de votre unité sélectionne des cibles, elle doit sélectionner votre unité comme cible de ses attaques.",
+    "restrictionRules": null
+  },
+  {
+    "id": "stratagem-adepta-sororitas-rejoice-the-fallen",
+    "lore": "La mort d'une Sœur de Bataille ne fait qu'inciter les survivantes à combattre plus fort pour obtenir une vengeance rapide.",
+    "whenRules": "Phase de tir de votre adversaire, juste après qu'une unité ennemie a résolu ses attaques.",
+    "targetRules": "Une unité Adepta Sororitas de votre armée dont une ou plusieurs figurines ont été détruites suite aux attaques de l'unité attaquante.",
+    "effectRules": "Votre unité peut tirer comme si c'était votre phase de tir, mais elle doit cibler uniquement cette unité ennemie lorsqu'elle le fait, et peut seulement le faire si cette unité ennemie est une cible éligible.",
+    "restrictionRules": null
+  },
+  {
+    "id": "stratagem-adepta-sororitas-divine-intervention-codex",
+    "lore": "Les pieux croient que, dans leur moment de plus grand besoin, l'Empereur les protège.",
+    "whenRules": "N'importe quelle phase.",
+    "targetRules": "Une unité de Personnage Adepta Sororitas de votre armée qui vient d'être détruite. Vous pouvez utiliser ce Stratagème sur cette unité même si elle vient d'être détruite.",
+    "effectRules": "Défaussez 1 à 3 dés Miracle. À la fin de la phase, replacez la dernière figurine détruite de votre unité sur le champ de bataille, aussi près que possible de l'endroit où elle a été détruite et pas à Portée d'Engagement de figurines ennemies. Lancez un D3, en ajoutant 1 au résultat pour chaque dé Miracle que vous avez défaussé. Cette figurine est replacée avec ce nombre de blessures restantes (jusqu'à son nombre de blessures de départ).",
+    "restrictionRules": "Vous ne pouvez pas sélectionner Sainte Célestine comme cible de ce Stratagème. Vous ne pouvez pas sélectionner le même Personnage comme cible de ce Stratagème plus d'une fois par bataille."
+  },
+  {
+    "id": "stratagem-adepta-sororitas-boundless-zeal",
+    "lore": "Le désir d'absoudre leurs péchés et de détruire l'ennemi pousse les pénitents à pousser leurs corps torturés au-delà de leurs limites mortelles.",
+    "whenRules": "Votre phase de Mouvement, juste après qu'une unité Adepta Sororitas de votre armée a Battu en Retraite.",
+    "targetRules": "Cette unité Adepta Sororitas.",
+    "effectRules": "Jusqu'à la fin du tour, votre unité est éligible pour tirer ou déclarer une charge dans un tour où elle a Battu en Retraite. Si votre unité a le mot-clé Pénitent, elle est éligible pour tirer et déclarer une charge dans un tour où elle a Battu en Retraite à la place.",
+    "restrictionRules": null
+  },
+  {
+    "id": "stratagem-adepta-sororitas-devout-fanaticism",
+    "lore": "Les fidèles serviteurs de l'Empereur-Dieu, insouciants des tirs ennemis, bondissent pour délivrer son jugement furieux dans la mêlée.",
+    "whenRules": "Phase de Tir de votre adversaire, juste après qu'une unité ennemie a sélectionné ses cibles.",
+    "targetRules": "Une unité Pénitente de votre armée qui a été sélectionnée comme cible d'une ou plusieurs attaques de l'unité attaquante.",
+    "effectRules": "Lancez un D6 : votre unité peut être déplacée d'une distance en pouces égale au résultat, mais elle doit terminer ce mouvement aussi proche que possible de l'unité ennemie la plus proche (à l'exception des Aéronefs). Ce faisant, les figurines de votre unité peuvent être déplacées à Portée d'Engagement d'unités ennemies.",
+    "restrictionRules": null
+  },
+  {
+    "id": "stratagem-adepta-sororitas-shield-of-aversion",
+    "lore": "Les Sœurs de Bataille se ceignent de la force de leur foi. C'est un bouclier de répulsion qui rejette la ruse hérétique de leurs ennemis.",
     "whenRules": "Phase de Tir de votre adversaire ou phase de Combat, juste après qu'une unité ennemie a sélectionné ses cibles.",
-    "targetRules": "Une unité Orks de votre armée qui a été sélectionnée comme cible d'une ou plusieurs attaques de l'unité attaquante.",
-    "effectRules": "Jusqu'à la fin de la phase, chaque fois qu'une attaque cible votre unité, soustrayez 1 au jet de blessure.",
-    "restrictionRules": "Vous ne pouvez pas sélectionner une unité Véhicule ou Gretchin pour ce Stratagème."
+    "targetRules": "Une unité Adepta Sororitas de votre armée qui a été sélectionnée comme cible d'une ou plusieurs attaques de l'unité attaquante.",
+    "effectRules": "Jusqu'à la fin de la phase, chaque fois qu'une attaque cible votre unité, empirez la caractéristique de Pénétration d'Armure de cette attaque de 1.",
+    "restrictionRules": null
   },
   {
-    "id": "stratagem-orks-’ere-we-go",
-    "lore": "Même les Orks les plus patauds peuvent piquer un sprint surprenant quand la promesse d'un bon combat au corps-à-corps se présente. Une fois qu'une horde d'Orks a repéré l'ennemi, rien ne peut les arrêter.",
-    "whenRules": "Début de votre phase de Mouvement.",
-    "targetRules": "Une unité d'Infanterie Orks de votre armée.",
-    "effectRules": "Jusqu'à la fin du tour, ajoutez 2 aux jets d'Avance et de Charge effectués pour votre unité.",
+    "id": "stratagem-adepta-sororitas-blazing-ire",
+    "lore": "Les transports de l'Adepta Sororitas sont des sanctuaires mobiles. Les Sœurs à l'intérieur de ce véhicule récitent des psaumes de haine vertueuse et de destruction avant d'émerger pour anéantir leurs ennemis.",
+    "whenRules": "Phase de Tir de votre adversaire, juste après qu'une unité ennemie a tiré.",
+    "targetRules": "Une unité de Transport Adepta Sororitas de votre armée qui a été sélectionnée comme cible d'une ou plusieurs des attaques de l'unité attaquante.",
+    "effectRules": "Une unité embarquée dans votre Transport peut débarquer comme si c'était votre phase de Mouvement, et peut ensuite tirer comme si c'était votre phase de Tir, mais doit cibler uniquement cette unité ennemie lorsqu'elle le fait, et ne peut le faire que si cette unité ennemie est une cible éligible.",
+    "restrictionRules": null
+  },
+  {
+    "id": "stratagem-adepta-sororitas-shield-of-faith",
+    "lore": "Il n'existe pas d'armure plus résistante que la conviction elle-même.",
+    "whenRules": "N'importe quelle phase, juste après qu'une unité Adepta Sororitas de votre armée subisse une blessure mortelle.",
+    "targetRules": "Cette unité Adepta Sororitas, ou une unité Adepta Sororitas avec Réacteur Dorsal amie à 3\" ou moins d'elle.",
+    "effectRules": "Jusqu'à la fin de la phase, les figurines de votre unité ont la capacité Insensible à la Douleur 5+ contre les blessures mortelles. Si vous avez ciblé une unité Adepta Sororitas avec Réacteur Dorsal de votre armée avec ce Stratagème, alors jusqu'à la fin de la phase, tant qu'une unité Adepta Sororitas amie est à 3\" ou moins de votre unité, les figurines de cette unité ont la capacité Insensible à la Douleur 5+ contre les blessures mortelles.",
+    "restrictionRules": null
+  },
+  {
+    "id": "stratagem-adepta-sororitas-faith-and-fury",
+    "lore": "Le zèle vertueux des Sœurs de Bataille brûle intensément alors qu'elles chargent vers leurs ennemis.",
+    "whenRules": "Phase de combat.",
+    "targetRules": "Une unité Adepta Sororitas de votre armée qui n'a pas été sélectionnée pour combattre durant cette phase.",
+    "effectRules": "Jusqu'à la fin de la phase, les armes de mêlée équipées par les figurines de votre unité ont l'aptitude [LANCE]. Si une ou plusieurs figurines ennemies sont détruites suite aux attaques de votre unité durant cette phase, vous gagnez 1 dé Miracle.",
     "restrictionRules": null
   }
 ]

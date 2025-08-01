@@ -345,16 +345,6 @@ def push_to_github():
         return False
 
 def main():
-    # Mode debug pour tester uniquement les entrées problématiques
-    DEBUG_MODE = False
-    DEBUG_IDS = [
-        "stratagem-black-templars-crusader_s-wrath",
-        "stratagem-blood-angels-angel_s-sacrifice",
-        "stratagem-imperial-knights-squires_-duty",
-        "stratagem-orks-_ard-as-nails",
-        "stratagem-orks-_ere-we-go",
-    ]
-    
     # Télécharger le fichier
     if not download_latest_file():
         return
@@ -365,16 +355,6 @@ def main():
         data = json.load(f)
     
     print(f"Total: {len(data)} entrées")
-    
-    # En mode debug, filtrer uniquement les entrées problématiques
-    if DEBUG_MODE:
-        print("\n⚠️  MODE DEBUG ACTIVÉ - Traitement uniquement des entrées problématiques")
-        original_data = data
-        data = [item for item in data if item['id'] in DEBUG_IDS]
-        print(f"Entrées à traiter en mode debug: {len(data)}")
-        for item in data:
-            print(f"  - {item['id']}")
-            print(f"    Contenu: {json.dumps(item, indent=6, ensure_ascii=False)[:200]}...")
     
     # Initialiser
     translated_data = []
@@ -669,10 +649,7 @@ Retourne UNIQUEMENT le JSON traduit, sans texte avant ou après."""
     # Résultat final
     if len(truly_missing_entries) == 0:
         print("\n✅ Toutes les entrées ont été traduites avec succès!")
-        if not DEBUG_MODE:
-            push_to_github()
-        else:
-            print("⚠️  Mode debug activé - pas de push vers GitHub")
+        push_to_github()
     else:
         print(f"\n⚠️  {len(truly_missing_entries)} entrées n'ont pas pu être traduites après {retry_round} rounds de rattrapage")
         print("⚠️  Push annulé: la traduction n'est pas complète")
