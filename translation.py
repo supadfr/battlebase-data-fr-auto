@@ -633,29 +633,65 @@ Retourne UNIQUEMENT le JSON traduit, sans texte avant ou après."""
     with open(output_file, 'w', encoding='utf-8') as f:
         json.dump(translated_data, f, indent=2, ensure_ascii=False)
     
+    # Vérification finale en tenant compte des possibles doublons
+    print("\n" + "="*60)
+    print("Vérification finale...")
+    
+    # Charger le fichier de sortie pour vérifier tous les IDs présents
+    with open(output_file, 'r', encoding='utf-8') as f:
+        output_data = json.load(f)
+    
+    # Créer un ensemble de tous les IDs dans le fichier de sortie (avec normalisation)
+    output_ids_raw = {item['id'] for item in output_data}
+    output_ids_normalized = {id.replace("-", "_").replace("'", "_") for id in output_ids_raw}
+    
+    # Créer un ensemble des IDs originaux normalisés
+    original_ids_normalized = {item['id'].replace("-", "_").replace("'", "_") for item in data}
+    
+    # Vérifier quels IDs originaux ne sont pas dans le fichier de sortie
+    missing_ids_normalized = original_ids_normalized - output_ids_normalized
+    
+    # Retrouver les IDs originaux correspondants
+    truly_missing_entries = []
+    for item in data:
+        normalized_id = item['id'].replace("-", "_").replace("'", "_")
+        if normalized_id in missing_ids_normalized:
+            truly_missing_entries.append(item)
+    
+    print(f"  Entrées dans le fichier original: {len(data)}")
+    print(f"  Entrées dans le fichier de sortie: {len(output_data)}")
+    print(f"  Entrées réellement manquantes: {len(truly_missing_entries)}")
+    
+    # Si des doublons ont été détectés
+    if len(output_data) > len(translated_data):
+        print(f"  ⚠️  Doublons détectés: {len(output_data) - len(translated_data)} entrées en double")
+    
     # Résultat final
-    if len(translated_data) == len(data):
+    if len(truly_missing_entries) == 0:
         print("\n✅ Toutes les entrées ont été traduites avec succès!")
         if not DEBUG_MODE:
             push_to_github()
         else:
             print("⚠️  Mode debug activé - pas de push vers GitHub")
     else:
-        missing_final = len(data) - len(translated_data)
-        print(f"\n⚠️  {missing_final} entrées n'ont pas pu être traduites après {retry_round} rounds de rattrapage")
+        print(f"\n⚠️  {len(truly_missing_entries)} entrées n'ont pas pu être traduites après {retry_round} rounds de rattrapage")
         print("⚠️  Push annulé: la traduction n'est pas complète")
         
-        # Sauvegarder les IDs des entrées non traduites pour debug
-        # Normaliser les IDs pour la comparaison (remplacer ' par _)
-        normalized_translated_ids = {id.replace("'", "_") for id in translated_ids}
-        untranslated_ids = [item['id'] for item in data if item['id'].replace("'", "_") not in normalized_translated_ids]
+        # Sauvegarder les IDs des entrées réellement non traduites
+        untranslated_ids = [item['id'] for item in truly_missing_entries]
         with open('untranslated_ids.txt', 'w', encoding='utf-8') as f:
             if untranslated_ids:
                 f.write('\n'.join(untranslated_ids))
                 print(f"   {len(untranslated_ids)} IDs non traduits ont été sauvegardés dans untranslated_ids.txt")
+                # Afficher les premiers IDs manquants
+                print("\n   Exemples d'IDs manquants:")
+                for id in untranslated_ids[:5]:
+                    print(f"     - {id}")
+                if len(untranslated_ids) > 5:
+                    print(f"     ... et {len(untranslated_ids) - 5} autres")
             else:
                 f.write("Aucun ID non traduit trouvé")
-                print("   ⚠️  Aucun ID non traduit trouvé dans la liste")
+                print("   ✅ Aucun ID réellement manquant")
 
 if __name__ == "__main__":
     main()
